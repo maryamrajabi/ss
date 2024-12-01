@@ -36,17 +36,17 @@ export class OverviewComponent implements OnInit, OnDestroy {
     yAxis: {
       min: 0,
       title: {
-        text: 'Height (m)'
+        text: '%'
       }
     },
     tooltip: {
-      valueSuffix: ' m'
+      valueSuffix: ' %'
     },
     series: [{
       data: [
-        ['CPU', 138.8],
-        ['Log Disk', 136.4],
-        ['RAM', 104]],
+        ['CPU', 13],
+        ['Log Disk', 1.4],
+        ['RAM', 10]],
       type: 'column',
       showInLegend: false,
       colorByPoint: true,
@@ -67,6 +67,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   products!: OverviewModel[];
   administratorsLogins!: OverviewModel[];
+  policiesStatus!: OverviewModel[];
+  attackLogs!: OverviewModel[];
   overviewSystemInformations!: OverviewModel[];
 
   constructor(private overviewService: OverviewService,
@@ -87,6 +89,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
     });
     this.initChart();
     this.overviewService.getAdministratorsLogins().then(data => this.administratorsLogins = data);
+    this.overviewService.getPoliciesStatus().then(data => this.policiesStatus = data);
+    this.overviewService.getAttackLogs().then(data => this.attackLogs = data);
     this.overviewService.getProductsSmall().then(data => this.products = data);
 
     this.items = [

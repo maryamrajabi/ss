@@ -60,6 +60,111 @@ export class OverviewService {
       },
     ];
   }
+  getPoliciesStatusData() {
+    return [
+      {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Default',
+        description: 'Hostname',
+        image: 'bamboo-watch.jpg',
+        price: 0,
+        category: 'Detection',
+        quantity: 24,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+      {
+        id: '1001',
+        code: 'nvklal433',
+        name: 'Firewall',
+        description: '1.2',
+        image: 'black-watch.jpg',
+        price: 1,
+        category: 'Prevention',
+        quantity: 61,
+        inventoryStatus: 'Detection',
+        rating: 4
+      },
+      {
+        id: '1002',
+        code: 'zz21cz3c1',
+        name: 'Web_Servers',
+        description: '2024/11/26 22:53:28',
+        image: 'blue-band.jpg',
+        price: 0,
+        category: 'Prevention',
+        quantity: 2,
+        inventoryStatus: 'Detection',
+        rating: 3
+      },
+      {
+        id: '1003',
+        code: '244wgerg2',
+        name: 'DNS_Servers',
+        description: '24 days 16 hours 55 minutes 11 seconds\n',
+        image: 'blue-t-shirt.jpg',
+        price: 1,
+        category: 'Prevention',
+        quantity: 25,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+    ];
+  }
+  getAttackLogsData() {
+    return [
+      {
+        id: '1000',
+        code: 'Inbound',
+        name: '2021-09-25 15:20:00',
+        description: 'Invalid ICMP Type/Code',
+        image: 'bamboo-watch.jpg',
+        price: 0,
+        category: 'Default',
+        quantity: 1,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+      {
+        id: '1000',
+        code: 'Inbound',
+        name: '2021-09-25 15:20:00',
+        description: 'Invalid ICMP Type/Code',
+        image: 'bamboo-watch.jpg',
+        price: 0,
+        category: 'Default',
+        quantity: 8,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+      {
+        id: '1000',
+        code: 'Inbound',
+        name: '2021-09-25 15:20:00',
+        description: 'Invalid ICMP Type/Code',
+        image: 'bamboo-watch.jpg',
+        price: 0,
+        category: 'Default',
+        quantity: 16,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+      {
+        id: '1000',
+        code: 'Outbound',
+        name: '2021-09-25 15:20:00',
+        description: 'Invalid ICMP Type/Code',
+        image: 'bamboo-watch.jpg',
+        price: 0,
+        category: 'Default',
+        quantity: 3,
+        inventoryStatus: 'Detection',
+        rating: 5
+      },
+
+    ];
+  }
 
   getAdministratorsLoginsData() {
     return [
@@ -1361,8 +1466,12 @@ export class OverviewService {
   getAdministratorsLogins() {
     return Promise.resolve(this.getAdministratorsLoginsData().slice(0, 5));
   }
-
-  getProductsMini() {
+  getPoliciesStatus() {
+    return Promise.resolve(this.getPoliciesStatusData().slice(0, 5));
+  }
+  getAttackLogs() {
+    return Promise.resolve(this.getAttackLogsData().slice(0, 5));
+  } getProductsMini() {
     return Promise.resolve(this.getProductsData().slice(0, 5));
   }
 
