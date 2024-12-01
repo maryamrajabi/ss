@@ -2,8 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OverviewService} from '../service/overview.service';
 import {OverviewModel} from '../model/overview';
 import {MenuItem} from 'primeng/api';
-import {debounceTime, Subscription} from 'rxjs';
+import {debounceTime, noop, Subscription} from 'rxjs';
 import {LayoutService} from '../../../layout/service/app.layout.service';
+import * as Highcharts from 'highcharts';
+
 
 @Component({
   selector: 'app-overview',
@@ -14,10 +16,51 @@ import {LayoutService} from '../../../layout/service/app.layout.service';
 })
 export class OverviewComponent implements OnInit, OnDestroy {
   items!: MenuItem[];
-
   // products!: Product[];
+  Highcharts: typeof Highcharts = Highcharts; // required
+  highchartsOptions: Highcharts.Options = {
+    title: {
+      text: ''
+    },
+    colors: ['#afcd73'],
+
+    xAxis: {
+      crosshair: true,
+      labels: {
+        style: {
+          fontSize: '14px'
+        }
+      },
+      type: 'category'
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Height (m)'
+      }
+    },
+    tooltip: {
+      valueSuffix: ' m'
+    },
+    series: [{
+      data: [
+        ['CPU', 138.8],
+        ['Log Disk', 136.4],
+        ['RAM', 104]],
+      type: 'column',
+      showInLegend: false,
+      colorByPoint: true,
+
+    }]
+  };
+  chartConstructor: string = 'chart'; // optional string, defaults to 'chart'
+  chartCallback: Highcharts.ChartCallbackFunction = function (chart) {  } // optional function, defaults to null
+  updateFlag: boolean = false; // optional boolean
+  oneToOneFlag: boolean = true; // optional boolean, defaults to false
+  runOutsideAngular: boolean = false; // optional boolean, defaults to false
 
   chartData: any;
+
 
   chartOptions: any;
 
@@ -36,10 +79,14 @@ export class OverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+
+
     this.overviewService.getSystemInformationsMini().then((data: any) => {
       this.overviewSystemInformations = data;
     });
     this.initChart();
+    this.overviewService.getAdministratorsLogins().then(data => this.administratorsLogins = data);
     this.overviewService.getProductsSmall().then(data => this.products = data);
 
     this.items = [
@@ -113,4 +160,5 @@ export class OverviewComponent implements OnInit, OnDestroy {
     }
   }
 
+  protected readonly noop = noop;
 }

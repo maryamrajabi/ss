@@ -10,6 +10,7 @@ import {StyleClassModule} from 'primeng/styleclass';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {ButtonModule} from 'primeng/button';
 import {ChartModule} from 'primeng/chart';
+import {HighchartsChartModule} from "highcharts-angular";
 
 
 
@@ -17,17 +18,18 @@ import {ChartModule} from 'primeng/chart';
   declarations: [
     OverviewComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    // ChartModule,
-    MenuModule,
-    TableModule,
-    StyleClassModule,
-    PanelMenuModule,
-    ButtonModule,
-    DashboardRoutingModule,
-    ChartModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        // ChartModule,
+        MenuModule,
+        TableModule,
+        StyleClassModule,
+        PanelMenuModule,
+        ButtonModule,
+        DashboardRoutingModule,
+        ChartModule,
+        HighchartsChartModule
+    ]
 })
 export class DashboardModule { }

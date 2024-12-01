@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OverviewService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getSystemInformationData() {
     return [
@@ -55,6 +56,100 @@ export class OverviewService {
         category: 'Clothing',
         quantity: 25,
         inventoryStatus: 'INSTOCK',
+        rating: 5
+      },
+    ];
+  }
+
+  getAdministratorsLoginsData() {
+    return [
+      {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'failure',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'failure',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
+        rating: 5
+      },{
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'demo',
+        description: '2024-11-09',
+        image: 'bamboo-watch.jpg',
+        price: '07:25:07',
+        category: 'success',
+        quantity: 24,
+        inventoryStatus: 'GUI(23.95.113.248)',
         rating: 5
       },
     ];
@@ -1258,9 +1353,15 @@ export class OverviewService {
       }
     ];
   }
+
   getSystemInformationsMini() {
     return Promise.resolve(this.getSystemInformationData().slice(0, 5));
   }
+
+  getAdministratorsLogins() {
+    return Promise.resolve(this.getAdministratorsLoginsData().slice(0, 5));
+  }
+
   getProductsMini() {
     return Promise.resolve(this.getProductsData().slice(0, 5));
   }

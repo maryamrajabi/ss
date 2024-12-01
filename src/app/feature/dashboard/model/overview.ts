@@ -3,7 +3,7 @@ export interface OverviewModel {
   code?: string;
   name?: string;
   description?: string;
-  price?: number;
+  price?: number | string;
   quantity?: number;
   inventoryStatus?: string;
   category?: string;
