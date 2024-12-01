@@ -23,7 +23,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   subscription!: Subscription;
   products!: OverviewModel[];
-  overviewystemInformations!: OverviewModel[];
+  administratorsLogins!: OverviewModel[];
+  overviewSystemInformations!: OverviewModel[];
 
   constructor(private overviewService: OverviewService,
               public layoutService: LayoutService) {
@@ -36,7 +37,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.overviewService.getSystemInformationsMini().then((data: any) => {
-      this.overviewystemInformations = data;
+      this.overviewSystemInformations = data;
     });
     this.initChart();
     this.overviewService.getProductsSmall().then(data => this.products = data);
