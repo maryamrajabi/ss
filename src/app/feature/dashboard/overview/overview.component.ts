@@ -44,9 +44,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
     },
     series: [{
       data: [
-        ['CPU', 13],
+        ['CPU', 130],
         ['Log Disk', 1.4],
-        ['RAM', 10]],
+        ['RAM', 100]],
       type: 'column',
       showInLegend: false,
       colorByPoint: true,

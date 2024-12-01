@@ -78,7 +78,7 @@ export class AppMenuComponent  implements OnInit {
               {
                 label: 'Ip Profile',
                 icon: 'pi pi-fw pi-sign-in',
-                routerLink: ['/auth/login']
+                routerLink: ['/profile-settings/ip-profile']
               },
               {
                 label: 'ICMP Profile',
