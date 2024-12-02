@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import {ButtonModule} from 'primeng/button';
 import {AppLayoutModule} from './layout/app.layout.module';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {HighchartsChartModule} from 'highcharts-angular';
-import {ProfileSettingsService} from './feature/profiles-settings/service/profile-settings.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,11 @@ import {ProfileSettingsService} from './feature/profiles-settings/service/profil
     AppRoutingModule,
     ButtonModule,
     AppLayoutModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    HttpClientModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },ProfileSettingsService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

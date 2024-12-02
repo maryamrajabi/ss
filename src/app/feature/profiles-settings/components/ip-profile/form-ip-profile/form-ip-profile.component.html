@@ -1,0 +1,86 @@
+<!--<div class="grid">-->
+<!--&lt;!&ndash;  <div class="col-12">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h5>Toolbar</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p-toolbar>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="p-toolbar-group-left flex flex-wrap">&ndash;&gt;-->
+<!--&lt;!&ndash;          <button pButton type="button" label="New" icon="pi pi-plus" class="mr-2"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;          <button pButton type="button" label="Open" icon="pi pi-folder-open" class="p-button-secondary mr-2"></button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <i class="pi pi-bars p-toolbar-separator"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          <button pButton type="button" icon="pi pi-check" class="p-button-success mr-2"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;          <button pButton type="button" icon="pi pi-trash" class="p-button-warning mr-2"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;          <button pButton type="button" icon="pi pi-print" class="p-button-danger"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="p-toolbar-group-right">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p-splitButton label="Options" icon="pi pi-check" [model]="items"></p-splitButton>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </p-toolbar>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <ng-template pTemplate="content">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="field">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label for="name">Name</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input type="text" pInputText id="name" [(ngModel)]="product.name" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !product.name}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;      <small class="ng-dirty ng-invalid" *ngIf="submitted && !product.name">Name is required.</small>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="field">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label for="description">Description</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <textarea id="description" pInputTextarea [(ngModel)]="product.description" required rows="3" cols="20"></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="field">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label for="status">Inventory Status</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <p-dropdown [(ngModel)]="product.inventoryStatus" inputId="inventoryStatus" optionValue="label" [options]="statuses" placeholder="Select">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-template pTemplate="selectedItem">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span *ngIf="product && product.inventoryStatus" [class]="'product-badge status-' + product.inventoryStatus.toString().toLowerCase()">{{product.inventoryStatus}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-template let-option pTemplate="item">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span [class]="'product-badge status-' + option.value">{{option.label}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;      </p-dropdown>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="field">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label class="mb-3">Category</label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="formgrid grid">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="field-radiobutton col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="product.category"></p-radioButton>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="category1">Accessories</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="field-radiobutton col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="product.category"></p-radioButton>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="category2">Clothing</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="field-radiobutton col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="product.category"></p-radioButton>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="category3">Electronics</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="field-radiobutton col-6">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="product.category"></p-radioButton>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label for="category4">Fitness</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="formgrid grid">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="field col">&ndash;&gt;-->
+<!--&lt;!&ndash;        <label for="price">Price</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p-inputNumber id="price" [(ngModel)]="product.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="field col">&ndash;&gt;-->
+<!--&lt;!&ndash;        <label for="quantity">Quantity</label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p-inputNumber id="quantity" [(ngModel)]="product.quantity"></p-inputNumber>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ng-template>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <ng-template pTemplate="footer">&ndash;&gt;-->
+<!--&lt;!&ndash;    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;  &ndash;&gt;-->
+<!--</div>-->

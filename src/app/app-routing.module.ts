@@ -9,10 +9,6 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: () => import('./feature/dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'profile-settings', loadChildren: () => import('./feature/profiles-settings/profiles-settings.module').then(m => m.ProfilesSettingsModule) },
-      // { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
-      // { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
-      // { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
-      // { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
     ]
   },
   // { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },

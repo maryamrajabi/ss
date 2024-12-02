@@ -4487,6 +4487,9 @@
   }
   .p-sidebar .p-sidebar-header {
     padding: 1.25rem;
+
+    background: #6366F1;
+    color: #ffffff;
   }
   .p-sidebar .p-sidebar-header .p-sidebar-close,
 .p-sidebar .p-sidebar-header .p-sidebar-icon {
@@ -6318,6 +6321,6 @@
 
   .p-steps .p-steps-item.p-highlight .p-steps-number {
     background: #6366F1;
-    color: #ffffff;
+    color: #ffffff;g
   }
 }

@@ -1,5 +1,5 @@
 <div class="grid">
-  <div class="col-12 xl:col-3">
+  <div class="col-12 xl:col-3 pl-0 pr-0">
     <div class="card">
       <div class="flex align-items-center justify-content-between mb-4">
         <h5>System Information</h5>
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="col-12 xl:col-6">
+  <div class="col-12 xl:col-6 pl-0 pr-0">
     <div class="card">
       <h5>Administrators Logins</h5>
       <div class="flex align-items-center py-2 border-bottom-1 surface-border justify-content-between">
@@ -94,8 +94,7 @@
             <th >Name</th>
             <th >ID </th>
             <th >Status</th>
-            <th >Mode (Inbound) </th>
-            <th >Mode (Outbound)</th>
+            <th >Mode </th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -107,9 +106,6 @@
              </td>
             <td style="width: 35%; min-width: 8rem;">
               <span [class]="'status-' + product.category">{{product.category}}</span>
-            </td>
-            <td style="width: 35%; min-width: 8rem;">
-              <span [class]="'status-' + product.inventoryStatus">{{product.inventoryStatus}}</span>
             </td>
           </tr>
         </ng-template>
@@ -126,8 +122,7 @@
             <th>Timestamp</th>
             <th>Event Type </th>
             <th>Drops</th>
-            <th>SPP </th>
-            <th>Direction</th>
+            <th>Policy </th>
             <th>Mode</th>
           </tr>
         </ng-template>
@@ -140,9 +135,6 @@
             <td style="width: 35%; min-width: 8rem;">
               <span [class]="'status-' + product.category">{{product.category}}</span>
             </td>
-            <td style="width: 35%; min-width: 8rem;">
-            <span>{{product.code}}</span>
-          </td>
 
             <td style="width: 35%; min-width: 8rem;">
               <span >{{product.inventoryStatus}}</span>

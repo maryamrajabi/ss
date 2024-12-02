@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ProfileSettingsModel} from '../model/profile-settings-model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProfileSettingsService {
 
 

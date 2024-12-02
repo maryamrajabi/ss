@@ -12,21 +12,24 @@ import {MenubarModule} from 'primeng/menubar';
 
 
 @NgModule({
-  declarations: [
-    AppMenuItemComponent,
-    AppTopBarComponent,
-    AppFooterComponent,
-    AppMenuComponent,
-    AppSidebarComponent,
-    AppLayoutComponent,
-    AppMenuItemComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    MenubarModule,
-  ]
+    declarations: [
+        AppMenuItemComponent,
+        AppTopBarComponent,
+        AppFooterComponent,
+        AppMenuComponent,
+        AppSidebarComponent,
+        AppLayoutComponent,
+        AppMenuItemComponent,
+    ],
+    exports: [
+        AppSidebarComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        RouterLink,
+        RouterLinkActive,
+        MenubarModule,
+    ]
 })
 export class AppLayoutModule { }
