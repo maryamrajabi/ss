@@ -50,68 +50,65 @@
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Header Anomaly
 
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
-                  <div class="col-12 md:col-4">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group1" value="New York" [(ngModel)]="valCheck1" id="ny"></p-checkbox>
-                      <label for="ny">Other Protocol Fragment</label>
+                      <label for="ny">Illegal Flag Combination</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-4">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group1" value="San Francisco" [(ngModel)]="valCheck1" id="sf"></p-checkbox>
-                      <label for="sf">TCP Fragment</label>
+                      <label for="sf">Invalid Op Code</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-4">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck1" id="la"></p-checkbox>
-                      <label for="la">UDP Fragment</label>
+                      <label for="la">SP,DP Both 53</label>
                     </div>
                   </div>
+                  <div class="col-12 md:col-3">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck1" id="la"></p-checkbox>
+                    <label for="la">SIncomplete DNS</label>
+                  </div>
+                </div>
                 </div>
 
               </div>
             </div>
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Query Anomaly
-
-
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                      <label for="ny">DDoS</label>
+                      <label for="ny">Query Bit Set</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                      <label for="ny2">Anonymous</label>
+                      <label for="ny2">Null Query</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                      <label for="ny3">Phishing</label>
+                      <label for="ny3">QDCount not One in Query</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                      <label for="sf">Spam</label>
-                    </div>
-                  </div>
-                  <div class="col-12 md:col-2">
-                    <div class="field-checkbox">
-                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                      <label for="la">Tor</label>
+                      <label for="sf">RA Bit Set</label>
                     </div>
                   </div>
                 </div>
@@ -120,40 +117,32 @@
             </div>
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Response Anomaly
-
-
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                      <label for="ny">DDoS</label>
+                      <label for="ny">QCLASS in Reply</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                      <label for="ny2">Anonymous</label>
+                      <label for="ny2">QType in Reply</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                      <label for="ny3">Phishing</label>
+                      <label for="ny3">Query Bit not Set</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                      <label for="sf">Spam</label>
-                    </div>
-                  </div>
-                  <div class="col-12 md:col-2">
-                    <div class="field-checkbox">
-                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                      <label for="la">Tor</label>
+                      <label for="sf">QDCOUNT not One in Response</label>
                     </div>
                   </div>
                 </div>
@@ -162,40 +151,32 @@
             </div>
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Bufferoverflow Anomaly
-
-
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                      <label for="ny">DDoS</label>
+                      <label for="ny">Name too Long</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                      <label for="ny2">Anonymous</label>
+                      <label for="ny2"> Label Length too Large</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                      <label for="ny3">Phishing</label>
+                      <label for="ny3">TCP Message too Long</label>
                     </div>
                   </div>
-                  <div class="col-12 md:col-2">
+                  <div class="col-12 md:col-3">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                      <label for="sf">Spam</label>
-                    </div>
-                  </div>
-                  <div class="col-12 md:col-2">
-                    <div class="field-checkbox">
-                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                      <label for="la">Tor</label>
+                      <label for="sf"> UDP Message too Long</label>
                     </div>
                   </div>
                 </div>
@@ -204,42 +185,45 @@
             </div>
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Exploit Anomaly
-
-
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                      <label for="ny">DDoS</label>
+                      <label for="ny">Message Ends Prematurely</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                      <label for="ny2">Anonymous</label>
+                      <label for="ny2">Class not IN</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                      <label for="ny3">Phishing</label>
+                      <label for="ny3">Zone Transfer</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                      <label for="sf">Spam</label>
+                      <label for="sf">Pointer Loop</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                      <label for="la">Tor</label>
+                      <label for="la">Empty UDP</label>
                     </div>
                   </div>
+                  <div class="col-12 md:col-2">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                    <label for="la">TCP Buffer Underflow</label>
+                  </div>
+                </div>
                 </div>
 
               </div>
@@ -255,40 +239,37 @@
 
             <div class="field grid">
               <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Data Anomaly
-
-
-
               </label>
               <div class="col-12 md:col-8">
                 <div class="grid formgrid">
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                      <label for="ny">DDoS</label>
+                      <label for="ny">Extraneous Data</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                      <label for="ny2">Anonymous</label>
+                      <label for="ny2">TTL too Long</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                      <label for="ny3">Phishing</label>
+                      <label for="ny3">Invalid Class Type</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                      <label for="sf">Spam</label>
+                      <label for="sf">Name Length too Short</label>
                     </div>
                   </div>
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                      <label for="la">Tor</label>
+                      <label for="la">Multiple OPT RR</label>
                     </div>
                   </div>
                 </div>
@@ -306,7 +287,6 @@
                       <label for="ny">Status</label>
                     </div>
                   </div>
-
                   <div class="col-12 md:col-2">
                     <div class="field-checkbox">
                       <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
