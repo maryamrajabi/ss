@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "f230fh0g3",
+			"name": "TCP_Firewall",
+			"description": "DDoS, Anonymous Proxies, Phishing, Spam, Tor",
+			"image": "bamboo-watch.jpg",
+			"price": "Syn Cookie",
+			"category": 1,
+			"quantity": "Inbound",
+			"inventoryStatus": "Enabled",
+			"rating": "None"
+		},
+		{
+			"id": "1001",
+			"code": "nvklal433",
+			"name": "TCP_Web",
+			"description": "N/A",
+			"image": "black-watch.jpg",
+			"price": "Syn Cookie",
+			"category": 1,
+			"quantity": "Inbound",
+			"inventoryStatus": "OUTOFSTOCK",
+			"rating": "None"
+		},
+		{
+			"id": "1002",
+			"code": "zz21cz3c1",
+			"name": "TCP_DNS",
+			"description": "N/A",
+			"image": "blue-band.jpg",
+			"price": "Syn Cookie",
+			"category": 1,
+			"quantity": "Inbound",
+			"inventoryStatus": "LOWSTOCK",
+			"rating": "None"
+		}
+	]
+}

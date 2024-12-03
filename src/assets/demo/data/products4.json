@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "f230fh0g3",
+			"name": "DNS_Firewall",
+			"description": "DDoS, Anonymous Proxies, Phishing, Spam, Tor",
+			"image": "bamboo-watch.jpg",
+      "price": "Inbound",
+			"category": "N/A",
+			"quantity": "TC Equal One/TC Equal One",
+			"inventoryStatus": "Enabled",
+			"rating": 1
+		},
+		{
+			"id": "1001",
+			"code": "nvklal433",
+			"name": "DNS_Web",
+			"description": "N/A",
+			"image": "black-watch.jpg",
+			"price": "Inbound",
+			"category": "Other Protocol Fragment, TCP Fragment",
+      "quantity": "TC Equal One/TC Equal One",
+			"inventoryStatus": "OUTOFSTOCK",
+			"rating": 1
+		},
+		{
+			"id": "1002",
+			"code": "zz21cz3c1",
+			"name": "DNS-DNS",
+			"description": "N/A",
+			"image": "blue-band.jpg",
+      "price": "Inbound",
+			"category": "Other Protocol Fragment, TCP Fragment",
+      "quantity": "TC Equal One/TC Equal One",
+			"inventoryStatus": "LOWSTOCK",
+			"rating": 0
+		}
+	]
+}

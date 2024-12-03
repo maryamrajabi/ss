@@ -83,22 +83,22 @@ export class AppMenuComponent  implements OnInit {
               {
                 label: 'ICMP Profile',
                 icon: 'pi pi-fw pi-times-circle',
-                routerLink: ['/auth/error']
+                routerLink: ['/profile-settings/icmp-profile']
               },
               {
                 label: 'NTP Profile',
                 icon: 'pi pi-fw pi-lock',
-                routerLink: ['/auth/access']
+                routerLink: ['/profile-settings/ntp-profile']
               },
               {
                 label: 'TCP Profile',
                 icon: 'pi pi-fw pi-lock',
-                routerLink: ['/auth/access']
+                routerLink: ['/profile-settings/tcp-profile']
               },
               {
                 label: 'DNS Profile',
                 icon: 'pi pi-fw pi-lock',
-                routerLink: ['/auth/access']
+                routerLink: ['/profile-settings/dns-profile']
               }
 
             ]

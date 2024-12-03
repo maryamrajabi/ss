@@ -17,8 +17,31 @@ export class ProfileSettingsService {
       .then(data => data);
   }
 
-  getProducts() {
-    return this.http.get<any>('assets/demo/data/products.json')
+  getProducts(profile?: any) {
+    let getData;
+    switch(profile) {
+      case 'icmp-profile': {
+        getData = 'assets/demo/data/products2.json';
+        break;
+      }
+      case 'ntp-profile': {
+        getData = 'assets/demo/data/products1.json';
+        break;
+      }
+      case 'tcp-profile': {
+        getData = 'assets/demo/data/products3.json';
+        break;
+      }
+      case 'dns-profile': {
+        getData = 'assets/demo/data/products4.json';
+        break;
+      }
+      default: {
+        getData = 'assets/demo/data/products.json';
+        break;
+      }
+    }
+    return this.http.get<any>(getData)
       .toPromise()
       .then(res => res.data as ProfileSettingsModel[])
       .then(data => data);

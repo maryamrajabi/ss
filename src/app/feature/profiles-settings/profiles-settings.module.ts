@@ -28,10 +28,14 @@ import { FormIpProfileComponent } from './components/ip-profile/form-ip-profile/
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {CheckboxModule} from 'primeng/checkbox';
+import { IcmpProfileComponent } from './components/icmp-profile/icmp-profile.component';
+import { NtpProfileComponent } from './components/ntp-profile/ntp-profile.component';
+import { TcpProfileComponent } from './components/tcp-profile/tcp-profile.component';
+import { DnsProfileComponent } from './components/dns-profile/dns-profile.component';
 
 
 @NgModule({
-  declarations: [ProfilesSettingsComponent, IpProfileComponent, FormIpProfileComponent],
+  declarations: [ProfilesSettingsComponent, IpProfileComponent, FormIpProfileComponent, IcmpProfileComponent, NtpProfileComponent, TcpProfileComponent, DnsProfileComponent],
   imports: [
     CommonModule,
     TableModule,
