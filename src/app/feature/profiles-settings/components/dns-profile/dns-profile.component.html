@@ -42,49 +42,13 @@
           <div class="col-12 md:col-12">
             <div class="p-fluid">
               <div class="field grid">
-          <span class="font-semibold text-xl">DNS Profile</span>
+          <span class="font-semibold text-xl">DNS Anomaly Feature Controls</span>
               </div>
             </div>
-            <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Strict Anomalies
-              </label>
-              <div class="col-12 md:col-8">
-                <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
-              </div>
-            </div>
-            <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">UDP Empty Checksum Check
-              </label>
-              <div class="col-12 md:col-8">
-                <p-inputSwitch [(ngModel)]="valSwitch1"></p-inputSwitch>
-              </div>
-            </div>
-            <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Land Attack (Src=Dst) Anomaly
 
-              </label>
-              <div class="col-12 md:col-8">
-                <p-inputSwitch [(ngModel)]="valSwitch2"></p-inputSwitch>
-              </div>
-            </div>
-            <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Private Check
 
-              </label>
-              <div class="col-12 md:col-8">
-                <p-inputSwitch [(ngModel)]="valSwitch3"></p-inputSwitch>
-              </div>
-            </div>
             <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Multicast Check
-
-              </label>
-              <div class="col-12 md:col-8">
-                <p-inputSwitch [(ngModel)]="valSwitch4"></p-inputSwitch>
-              </div>
-            </div>
-            <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Fragment Check
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Header Anomaly
 
 
               </label>
@@ -113,7 +77,8 @@
               </div>
             </div>
             <div class="field grid">
-              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Reputation Categories
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Query Anomaly
+
 
 
               </label>
@@ -149,6 +114,218 @@
                       <label for="la">Tor</label>
                     </div>
                   </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Response Anomaly
+
+
+
+              </label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                      <label for="ny">DDoS</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                      <label for="ny2">Anonymous</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                      <label for="ny3">Phishing</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                      <label for="sf">Spam</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                      <label for="la">Tor</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Bufferoverflow Anomaly
+
+
+
+              </label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                      <label for="ny">DDoS</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                      <label for="ny2">Anonymous</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                      <label for="ny3">Phishing</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                      <label for="sf">Spam</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                      <label for="la">Tor</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Exploit Anomaly
+
+
+
+              </label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                      <label for="ny">DDoS</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                      <label for="ny2">Anonymous</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                      <label for="ny3">Phishing</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                      <label for="sf">Spam</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                      <label for="la">Tor</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Info Anomaly(Type All/Any Used)
+              </label>
+              <div class="col-12 md:col-8">
+                <p-inputSwitch [(ngModel)]="valSwitch4"></p-inputSwitch>
+              </div>
+            </div>
+
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Data Anomaly
+
+
+
+              </label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                      <label for="ny">DDoS</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                      <label for="ny2">Anonymous</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                      <label for="ny3">Phishing</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                      <label for="sf">Spam</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                      <label for="la">Tor</label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="field grid">
+              <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">DNS Known Opcode Anomaly
+              </label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                      <label for="ny">Status</label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                      <label for="ny2">Notify</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                      <label for="ny3">Update</label>
+                    </div>
+                  </div>
+                  <div class="col-12 md:col-2">
+                    <div class="field-checkbox">
+                      <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                      <label for="sf">DSO</label>
+                    </div>
+                  </div>
+
                 </div>
 
               </div>
