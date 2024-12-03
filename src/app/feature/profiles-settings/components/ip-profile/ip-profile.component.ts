@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ProfileSettingsModel} from '../../model/profile-settings-model';
 import {ProfileSettingsService} from '../../service/profile-settings.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
@@ -13,6 +13,7 @@ import {Table} from 'primeng/table';
 })
 export class IpProfileComponent implements OnInit {
 
+  @ViewChild('tableHeaderCheckbo') tableHeaderCheckbo: any = '';
 
   productDialog: boolean = false;
 
@@ -76,9 +77,11 @@ export class IpProfileComponent implements OnInit {
     this.deleteProductsDialog = true;
   }
 
-  editProduct(product: ProfileSettingsService) {
+  editProduct(product?: ProfileSettingsModel) {
+    this.visibleSidebar2 = true;
+    product = this.products.filter(val => this.selectedProducts.includes(val))[0];
     this.product = {...product};
-    this.productDialog = true;
+    // this.productDialog = true;
   }
 
   deleteProduct(product: ProfileSettingsService) {
