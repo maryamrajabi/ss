@@ -28,6 +28,9 @@ export class TcpProfileComponent  implements OnInit {
 
   selectedProducts: ProfileSettingsModel[] = [];
 
+  valRadio: string = '';
+
+
   submitted: boolean = false;
 
   cols: any[] = [];
@@ -46,6 +49,14 @@ export class TcpProfileComponent  implements OnInit {
 
   valCheck: string[] = [];
   valCheck1: string[] = [];
+  selectedState: any = null;
+
+  dropdownItems = [
+    { name: 'Moderate', code: 'Option 1' },
+    { name: 'Aggressive', code: 'Option 2' },
+    { name: 'User Defined', code: 'Option 3' },
+    { name: 'None', code: 'Option 3' }
+  ];
 
   constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
   }
