@@ -1,11 +1,11 @@
 <p-toolbar styleClass="mb-1">
   <ng-template pTemplate="left">
     <div class="my-1">
-      <button pButton pRipple type="button" (click)="visibleSidebar2 = true" label="Create"
+      <button pButton pRipple type="button" (click)="create.emit()" label="Create"
               *ngIf="selectedProducts.length <= 1" icon="pi pi-plus" class="p-button-outlined mr-2"></button>
       <button pButton pRipple type="button" label="Clear Selection"
               *ngIf="selectedProducts.length > 1" icon="pi pi-minus" class="p-button-outlined mr-2"></button>
-      <button pButton pRipple type="button" (click)="editProduct()"
+      <button pButton pRipple type="button" (click)="edit.emit()"
               [disabled]="!selectedProducts || !selectedProducts.length" *ngIf="selectedProducts.length <= 1"
               label="Edit" icon="pi pi-pen-to-square" class="p-button-outlined p-button-secondary mr-2"></button>
       <button pButton pRipple type="button" (click)="deleteSelectedProducts()"

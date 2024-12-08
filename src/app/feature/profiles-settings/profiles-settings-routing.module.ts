@@ -9,7 +9,6 @@ import {NtpProfileComponent} from './components/ntp-profile/ntp-profile.componen
 import {IcmpProfileComponent} from './components/icmp-profile/icmp-profile.component';
 
 const routes: Routes = [
-  // {path: '', component: ProfilesSettingsComponent},
   {
     path: '',
     component: ProfilesSettingsComponent,

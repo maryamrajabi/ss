@@ -9,6 +9,7 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: () => import('./feature/dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'profile-settings', loadChildren: () => import('./feature/profiles-settings/profiles-settings.module').then(m => m.ProfilesSettingsModule) },
+      { path: 'protection-settings', loadChildren: () => import('./feature/protection-settings/protection-settings.module').then(m => m.ProtectionSettingsModule) },
     ]
   },
   // { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },

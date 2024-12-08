@@ -37,204 +37,204 @@
                   <input pInputText id="name3" type="text" />
                 </div>
               </div>
-              <div class="col-12 md:col-12">
-                <div class="p-fluid">
-                  <div class="field grid">
-                    <span class="font-semibold text-xl">SYN Flood Protection
+                       </div>
+          </div>
+
+          <div class="col-12 md:col-12">
+            <div class="p-fluid">
+              <div class="field grid">
+                    <span class="font-semibold title-bar text-xl">SYN Flood Protection
 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field grid">
+            <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">SYN Flood Mitigation Mode
+            </label>
+            <div class="col-12 md:col-8">
+              <div class="grid formgrid">
+
+                <div class="col-12 md:col-4">
+                  <div class="field-radiobutton">
+                    <p-radioButton name="city" value="Chicago" [(ngModel)]="valRadio" id="city1"></p-radioButton>
+                    <label for="city1"> SYN Cookie </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-radiobutton">
+                    <p-radioButton name="city" value="Los Angeles" [(ngModel)]="valRadio"
+                                   id="city2"></p-radioButton>
+                    <label for="city2"> ACK Cookie </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-radiobutton">
+                    <p-radioButton name="city" value="New York" [(ngModel)]="valRadio" id="city3"></p-radioButton>
+                    <label for="city3"> SYN Retransmission </label>
                   </div>
                 </div>
               </div>
 
+            </div></div>
+
+          <div class="col-12 md:col-12">
+            <div class="p-fluid">
               <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">SYN Flood Mitigation Mode
-                </label>
-                <div class="col-12 md:col-8">
-                  <div class="grid formgrid">
-
-                    <div class="col-12 md:col-4">
-                      <div class="field-radiobutton">
-                        <p-radioButton name="city" value="Chicago" [(ngModel)]="valRadio" id="city1"></p-radioButton>
-                        <label for="city1"> SYN Cookie </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-radiobutton">
-                        <p-radioButton name="city" value="Los Angeles" [(ngModel)]="valRadio"
-                                       id="city2"></p-radioButton>
-                        <label for="city2"> ACK Cookie </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-radiobutton">
-                        <p-radioButton name="city" value="New York" [(ngModel)]="valRadio" id="city3"></p-radioButton>
-                        <label for="city3"> SYN Retransmission </label>
-                      </div>
-                    </div>
-                  </div>
-
-                </div></div>
-
-              <div class="col-12 md:col-12">
-                <div class="p-fluid">
-                  <div class="field grid">
-                    <span class="font-semibold text-xl">TCP Slow Connection Protection
+                    <span class="font-semibold title-bar text-xl">TCP Slow Connection Protection
 </span>
-                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field grid">
+            <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Slow Connection Type
+
+            </label>
+            <div class="col-12 md:col-8">
+              <div class="grid formgrid">
+                <div class="field col-12 md:col-8">
+                  <p-dropdown [options]="dropdownItems" optionLabel="name" placeholder="Click to Select" [(ngModel)]="selectedState"></p-dropdown>
                 </div>
               </div>
 
+            </div></div>
+
+          <div class="col-12 md:col-12">
+            <div class="p-fluid">
               <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">Slow Connection Type
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <div class="grid formgrid">
-                    <div class="field col-12 md:col-8">
-                      <p-dropdown [options]="dropdownItems" optionLabel="name" placeholder="Click to Select" [(ngModel)]="selectedState"></p-dropdown>
-                    </div>
-                  </div>
-
-                </div></div>
-
-              <div class="col-12 md:col-12">
-                <div class="p-fluid">
-                  <div class="field grid">
-                    <span class="font-semibold text-xl">TCP Packets Validation
+                    <span class="font-semibold title-bar text-xl">TCP Packets Validation
 
 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field grid">
+            <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">TCP Session Feature Control
+
+            </label>
+            <div class="col-12 md:col-8">
+              <div class="grid formgrid">
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                    <label for="ny">Sequence Validation</label>
                   </div>
                 </div>
-              </div>
-
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">TCP Session Feature Control
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <div class="grid formgrid">
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                        <label for="ny">Sequence Validation</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                        <label for="ny2"> SYN Validation</label>
-                      </div>
-                    </div>
-
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                        <label for="ny3">State Transition Anomalies Validation</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf"> Foreign Packet Validation</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                        <label for="ny">  Allow Tuple Reuse</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                        <label for="ny2"> Allow Duplicate SYN in SYN Sent
-                         </label>
-                      </div>
-                    </div>
-
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                        <label for="ny3"> Allow Duplicate SYN in SYN Recv
-                          </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">Allow SYN Anamoly
-                      </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">    Allow SYN ACK Anomaly
-
-                      </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">    Allow ACK Anomaly
-
-                      </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">       Allow RST Anomaly
-
-                      </label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">    Allow FIN Anomaly
-
-                      </label>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="field grid">
-                <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Drop Threshold For Foreign Packets
-                </label>
-                <div class="col-12 md:col-6">
-                  <input pInputText id="name3" type="text" />
-                </div>
-                <div class="col-12 md:col-2 justify-content-center align-content-center">
-                  Range: 0 - 65535
-                </div>
-
-              </div>
-              <div class="field grid">
-                <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Strict Anomalies
-
-                </label>
-                <div class="col-12 md:col-6">
-                  <div class="col-12 md:col-8">
-                    <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                    <label for="ny2"> SYN Validation</label>
                   </div>
                 </div>
 
-              </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                    <label for="ny3">State Transition Anomalies Validation</label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf"> Foreign Packet Validation</label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                    <label for="ny">  Allow Tuple Reuse</label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                    <label for="ny2"> Allow Duplicate SYN in SYN Sent
+                    </label>
+                  </div>
+                </div>
 
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                    <label for="ny3"> Allow Duplicate SYN in SYN Recv
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf">Allow SYN Anamoly
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf">    Allow SYN ACK Anomaly
+
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf">    Allow ACK Anomaly
+
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf">       Allow RST Anomaly
+
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 md:col-4">
+                  <div class="field-checkbox">
+                    <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                    <label for="sf">    Allow FIN Anomaly
+
+                    </label>
+                  </div>
+                </div>
+              </div>
 
             </div>
           </div>
 
+          <div class="field grid">
+            <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Drop Threshold For Foreign Packets
+            </label>
+            <div class="col-12 md:col-6">
+              <input pInputText id="name3" type="text" />
+            </div>
+            <div class="col-12 md:col-2 justify-content-center align-content-center">
+              Range: 0 - 65535
+            </div>
+
+          </div>
+          <div class="field grid">
+            <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Strict Anomalies
+
+            </label>
+            <div class="col-12 md:col-6">
+              <div class="col-12 md:col-8">
+                <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
+              </div>
+            </div>
+
+          </div>
+
         </ng-template>
         <ng-template pTemplate="footer">
-          <button pButton pRipple label="Ok" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
-          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-
+          <div class="flex justify-content-center align-items-center">
+          <button pButton pRipple label="Ok" icon="pi pi-check" class="p-element p-ripple p-button p-component mr-2" (click)="saveProduct()"></button>
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-ripple p-element p-button-outlined p-button p-component" (click)="hideDialog()"></button>
+          </div>
         </ng-template>
       </p-sidebar>
       <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">

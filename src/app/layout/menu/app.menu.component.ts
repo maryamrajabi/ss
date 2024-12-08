@@ -62,12 +62,12 @@ export class AppMenuComponent  implements OnInit {
               {
                 label: 'Addresses',
                 icon: 'pi pi-fw pi-sign-in',
-                routerLink: ['/auth/login']
+                routerLink: ['/protection-settings/addresses']
               },
               {
                 label: 'Protection Policies',
                 icon: 'pi pi-fw pi-times-circle',
-                routerLink: ['/auth/error']
+                routerLink: ['/protection-settings/protection-policies']
               },
             ]
           },

@@ -67,9 +67,10 @@
 
         </ng-template>
         <ng-template pTemplate="footer">
-          <button pButton pRipple label="Ok" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
-          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-
+          <div class="flex justify-content-center align-items-center">
+        <button pButton pRipple label="Ok" icon="pi pi-check" class="p-element p-ripple p-button p-component mr-2" (click)="saveProduct()"></button>
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-ripple p-element p-button-outlined p-button p-component" (click)="hideDialog()"></button>
+          </div>
         </ng-template>
       </p-sidebar>
       <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
