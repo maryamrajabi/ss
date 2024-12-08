@@ -32,6 +32,9 @@ import { IcmpProfileComponent } from './components/icmp-profile/icmp-profile.com
 import { NtpProfileComponent } from './components/ntp-profile/ntp-profile.component';
 import { TcpProfileComponent } from './components/tcp-profile/tcp-profile.component';
 import { DnsProfileComponent } from './components/dns-profile/dns-profile.component';
+import {SidebarComponent} from '../../shared/sidebar/sidebar.component';
+import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-component.component';
+import {TableComponentComponent} from '../../shared/table-component/table-component.component';
 
 
 @NgModule({
@@ -64,7 +67,10 @@ import { DnsProfileComponent } from './components/dns-profile/dns-profile.compon
     ConfirmPopupModule,
     SplitButtonModule,
     InputSwitchModule,
-    CheckboxModule
+    CheckboxModule,
+    SidebarComponent,
+    ToolbarComponentComponent,
+    TableComponentComponent
   ]
 })
 export class ProfilesSettingsModule { }

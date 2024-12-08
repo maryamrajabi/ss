@@ -1,0 +1,28 @@
+<p-toolbar styleClass="mb-1">
+  <ng-template pTemplate="left">
+    <div class="my-1">
+      <button pButton pRipple type="button" (click)="create.emit()" label="Create"
+              *ngIf="selectedProducts.length <= 1" icon="pi pi-plus" class="p-button-outlined mr-2"></button>
+      <button pButton pRipple type="button" label="Clear Selection"
+              *ngIf="selectedProducts.length > 1" icon="pi pi-minus" class="p-button-outlined mr-2"></button>
+      <button pButton pRipple type="button" (click)="edit.emit()"
+              [disabled]="!selectedProducts || !selectedProducts.length" *ngIf="selectedProducts.length <= 1"
+              label="Edit" icon="pi pi-pen-to-square" class="p-button-outlined p-button-secondary mr-2"></button>
+      <button pButton pRipple type="button" (click)="delete.emit()"
+              [disabled]="!selectedProducts || !selectedProducts.length" label="Delete" icon="pi pi-trash"
+              class="p-button-outlined p-button-secondary mr-2"></button>
+      <span class="mt-2 md:mt-0 p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="filter.emit($event)" placeholder="Search..."
+                 class="w-full sm:w-auto"/>
+      </span>
+      <!--            <button pButton pRipple label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></button>-->
+      <!--            <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button>-->
+    </div>
+  </ng-template>
+
+  <!--        <ng-template pTemplate="right">-->
+  <!--          <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>-->
+  <!--          <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>-->
+  <!--        </ng-template>-->
+</p-toolbar>

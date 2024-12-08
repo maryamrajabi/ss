@@ -1,0 +1,89 @@
+<!--&lt;!&ndash;<p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <ng-template pTemplate="header">&ndash;&gt;-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th style="width: 3rem">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>&ndash;&gt;-->
+<!--&lt;!&ndash;      </th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="price">IP Strict Anomalies <p-sortIcon field="price"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="quantity">IP Private Check <p-sortIcon field="quantity"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="rating">IP Multicast Check <p-sortIcon field="rating"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="category">IP Fragment Check <p-sortIcon field="category"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th pSortableColumn="description">IP Reputation Categories <p-sortIcon field="description"></p-sortIcon></th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th></th>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;  <ng-template pTemplate="body" let-product>&ndash;&gt;-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p-tableCheckbox [value]="product"></p-tableCheckbox>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:14%; min-width:10rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">Name</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        {{product.name}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:16%; min-width:8rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">Price</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;              <button pButton pRipple type="button" icon="pi {{product.price ? 'pi-check' : 'pi-plus'}}" class="p-button-rounded"></button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': product.price, 'false-icon pi-times-circle text-pink-500': !product.price}"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        {{product.price ? 'Enabled' : 'Disabled'}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:16%; min-width:8rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">quantity</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': product.quantity, 'false-icon pi-times-circle text-pink-500': !product.quantity}"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        {{product.quantity? 'Enabled' : 'Disabled'}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:16%; min-width:8rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">rating</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': product.rating, 'false-icon pi-times-circle text-pink-500': !product.rating}"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        {{product.rating? 'Enabled' : 'Disabled'}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:16%; min-width:10rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">Category</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        {{product.category}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td style="width:20%; min-width:10rem;">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="p-column-title">description</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        {{product.description}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;            <td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;              <div class="flex">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;              </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;      &lt;!&ndash;            </td>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ng-template>&ndash;&gt;-->
+<!--&lt;!&ndash;</p-table>&ndash;&gt;-->
+
+
+<!--<p-table [value]="data" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'">-->
+<!--  <ng-template pTemplate="header">-->
+<!--    <tr>-->
+<!--      <th *ngFor="let col of columns">-->
+<!--        {{ col.header }}-->
+<!--      </th>-->
+<!--      <th *ngIf="selectable">Actions</th>-->
+<!--    </tr>-->
+<!--  </ng-template>-->
+
+<!--  <ng-template pTemplate="body" let-row>-->
+<!--    <tr>-->
+<!--      <td *ngFor="let col of columns">-->
+<!--        {{ row[col.field] }}-->
+<!--      </td>-->
+<!--      <td *ngIf="selectable">-->
+<!--        <button pButton type="button" icon="pi pi-check" class="p-button-success p-button-sm"-->
+<!--                (click)="onRowSelect(row)">-->
+<!--        </button>-->
+<!--        <button pButton type="button" icon="pi pi-trash" class="p-button-danger p-button-sm"-->
+<!--                (click)="onRowDelete(row)">-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </ng-template>-->
+<!--</p-table>-->
