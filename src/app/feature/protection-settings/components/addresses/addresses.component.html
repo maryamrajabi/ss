@@ -2,169 +2,21 @@
   <div class="col-12">
     <div class="card px-1 py-1">
       <p-toast></p-toast>
-      <app-toolbar-component (create)="visibleSidebar2 = true"
+      <app-toolbar-component (create)="visibleSidebar = true"
                              (edit)="editProduct()"
                              (delete)="deleteSelectedProducts()"
+                             (filter)="onGlobalFilter($event)"
                              [selectedProducts]="selectedProducts"
       ></app-toolbar-component>
 
-
-<!--      <p-toolbar styleClass="mb-1">-->
-<!--        <ng-template pTemplate="left">-->
-<!--          <div class="my-1">-->
-<!--            <button pButton pRipple type="button" (click)="visibleSidebar2 = true" label="Create" *ngIf="selectedProducts.length <= 1" icon="pi pi-plus" class="p-button-outlined mr-2"></button>-->
-<!--            <button pButton pRipple type="button" label="Clear Selection" *ngIf="selectedProducts.length > 1" icon="pi pi-minus" class="p-button-outlined mr-2"></button>-->
-<!--            <button pButton pRipple type="button" (click)="editProduct()" [disabled]="!selectedProducts || !selectedProducts.length" *ngIf="selectedProducts.length <= 1" label="Edit" icon="pi pi-pen-to-square" class="p-button-outlined p-button-secondary mr-2"></button>-->
-<!--            <button pButton pRipple type="button" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length" label="Delete" icon="pi pi-trash" class="p-button-outlined p-button-secondary mr-2"></button>-->
-<!--            <span class="mt-2 md:mt-0 p-input-icon-left">-->
-<!--                            <i class="pi pi-search"></i>-->
-<!--                            <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."  class="w-full sm:w-auto"/>-->
-<!--                        </span>-->
-<!--            &lt;!&ndash;            <button pButton pRipple label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></button>&ndash;&gt;-->
-<!--            &lt;!&ndash;            <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button>&ndash;&gt;-->
-<!--          </div>-->
-<!--        </ng-template>-->
-
-<!--        &lt;!&ndash;        <ng-template pTemplate="right">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </ng-template>&ndash;&gt;-->
-<!--      </p-toolbar>-->
+      <app-sidebar-component [(visibleSidebar)]="visibleSidebar"
+                             (visibleSidebarChange)="visibleChange($event)"
+                             (onOkButtonChange)="saveProduct()"
+                             (onCancelButtonChange)="visibleChange($event)"
+                             [titleSidebar]="'Address Ipv4'"
+      ></app-sidebar-component>
 
 
-      <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000" [style]="{width: '70%', height:'calc(100vh - 70px)', top: '70px'}">
-        <ng-template pTemplate="header">
-          <span class="font-semibold text-xl">IP Profile</span>
-        </ng-template>
-
-        <ng-template pTemplate="content">
-          <div class="col-12 md:col-12">
-            <div class="p-fluid">
-              <div class="field grid">
-                <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>
-                <div class="col-12 md:col-8">
-                  <input pInputText id="name3" type="text" />
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Strict Anomalies
-                </label>
-                <div class="col-12 md:col-8">
-                  <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">UDP Empty Checksum Check
-                </label>
-                <div class="col-12 md:col-8">
-                  <p-inputSwitch [(ngModel)]="valSwitch1"></p-inputSwitch>
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Land Attack (Src=Dst) Anomaly
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <p-inputSwitch [(ngModel)]="valSwitch2"></p-inputSwitch>
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Private Check
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <p-inputSwitch [(ngModel)]="valSwitch3"></p-inputSwitch>
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Multicast Check
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <p-inputSwitch [(ngModel)]="valSwitch4"></p-inputSwitch>
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Fragment Check
-
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <div class="grid formgrid">
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group1" value="New York" [(ngModel)]="valCheck1" id="ny"></p-checkbox>
-                        <label for="ny">Other Protocol Fragment</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group1" value="San Francisco" [(ngModel)]="valCheck1" id="sf"></p-checkbox>
-                        <label for="sf">TCP Fragment</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-4">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck1" id="la"></p-checkbox>
-                        <label for="la">UDP Fragment</label>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="field grid">
-                <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Reputation Categories
-
-
-                </label>
-                <div class="col-12 md:col-8">
-                  <div class="grid formgrid">
-                    <div class="col-12 md:col-2">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
-                        <label for="ny">DDoS</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-2">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
-                        <label for="ny2">Anonymous</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-2">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
-                        <label for="ny3">Phishing</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-2">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
-                        <label for="sf">Spam</label>
-                      </div>
-                    </div>
-                    <div class="col-12 md:col-2">
-                      <div class="field-checkbox">
-                        <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
-                        <label for="la">Tor</label>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </ng-template>
-        <ng-template pTemplate="footer">
-          <div class="flex justify-content-center align-items-center">
-            <button pButton pRipple label="Ok" icon="pi pi-check" class="p-element p-ripple p-button p-component mr-2" (click)="saveProduct()"></button>
-            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-ripple p-element p-button-outlined p-button p-component" (click)="hideDialog()"></button>
-          </div>
-        </ng-template>
-      </p-sidebar>
       <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
         <!--        <ng-template pTemplate="caption">-->
         <!--          <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">-->

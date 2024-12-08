@@ -36,6 +36,10 @@ export class ProfileSettingsService {
         getData = 'assets/demo/data/products4.json';
         break;
       }
+      case 'addresses': {
+        getData = 'assets/demo/data/products5.json';
+        break;
+      }
       default: {
         getData = 'assets/demo/data/products.json';
         break;

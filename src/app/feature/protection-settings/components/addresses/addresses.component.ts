@@ -33,7 +33,7 @@ export class AddressesComponent  implements OnInit {
 
   rowsPerPageOptions = [5, 10, 20];
 
-  visibleSidebar2: boolean = false;
+  visibleSidebar: boolean = false;
 
   valSwitch: boolean = false;
   valSwitch1: boolean = false;
@@ -44,11 +44,13 @@ export class AddressesComponent  implements OnInit {
   valCheck: string[] = [];
   valCheck1: string[] = [];
 
+  @ViewChild('dt', {static: true}) dt: any;
+
   constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.productService.getProducts().then((data: ProfileSettingsModel[]) => this.products = data);
+    this.productService.getProducts('addresses').then((data: ProfileSettingsModel[]) => this.products = data);
 
     this.cols = [
       {field: 'product', header: 'Product'},
@@ -72,14 +74,19 @@ export class AddressesComponent  implements OnInit {
   }
 
   deleteSelectedProducts() {
+    console.log('f')
     this.deleteProductsDialog = true;
   }
 
   editProduct(product?: ProfileSettingsModel) {
-    this.visibleSidebar2 = true;
+    this.visibleSidebar = true;
     product = this.products.filter(val => this.selectedProducts.includes(val))[0];
     this.product = {...product};
     // this.productDialog = true;
+  }
+
+  visibleChange(e: any) {
+    this.visibleSidebar = e;
   }
 
   deleteProduct(product: ProfileSettingsService) {
@@ -152,7 +159,7 @@ export class AddressesComponent  implements OnInit {
     return id;
   }
 
-  onGlobalFilter(table: Table, event: Event) {
-    table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+  onGlobalFilter( event: Event) {
+    this.dt.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 }

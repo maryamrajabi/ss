@@ -1,154 +1,154 @@
-<!--<p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000" [style]="{width: '70%', height:'calc(100vh - 70px)', top: '70px'}">-->
-<!--  <ng-template pTemplate="header">-->
-<!--    <span class="font-semibold text-xl">IP Profile</span>-->
-<!--  </ng-template>-->
-
-<!--  <ng-template pTemplate="content">-->
-<!--    <div class="col-12 md:col-12">-->
-<!--      <div class="p-fluid">-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <input pInputText id="name3" type="text" />-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Strict Anomalies-->
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">UDP Empty Checksum Check-->
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <p-inputSwitch [(ngModel)]="valSwitch1"></p-inputSwitch>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Land Attack (Src=Dst) Anomaly-->
-
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <p-inputSwitch [(ngModel)]="valSwitch2"></p-inputSwitch>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Private Check-->
-
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <p-inputSwitch [(ngModel)]="valSwitch3"></p-inputSwitch>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Multicast Check-->
-
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <p-inputSwitch [(ngModel)]="valSwitch4"></p-inputSwitch>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Fragment Check-->
-
-
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <div class="grid formgrid">-->
-<!--              <div class="col-12 md:col-4">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group1" value="New York" [(ngModel)]="valCheck1" id="ny"></p-checkbox>-->
-<!--                  <label for="ny">Other Protocol Fragment</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-4">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group1" value="San Francisco" [(ngModel)]="valCheck1" id="sf"></p-checkbox>-->
-<!--                  <label for="sf">TCP Fragment</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-4">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck1" id="la"></p-checkbox>-->
-<!--                  <label for="la">UDP Fragment</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="field grid">-->
-<!--          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Reputation Categories-->
-
-
-<!--          </label>-->
-<!--          <div class="col-12 md:col-8">-->
-<!--            <div class="grid formgrid">-->
-<!--              <div class="col-12 md:col-2">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>-->
-<!--                  <label for="ny">DDoS</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-2">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>-->
-<!--                  <label for="ny2">Anonymous</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-2">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>-->
-<!--                  <label for="ny3">Phishing</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-2">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>-->
-<!--                  <label for="sf">Spam</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-12 md:col-2">-->
-<!--                <div class="field-checkbox">-->
-<!--                  <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>-->
-<!--                  <label for="la">Tor</label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </ng-template>-->
-<!--  <ng-template pTemplate="footer">-->
-<!--    <div class="flex justify-content-center align-items-center">-->
-<!--      <button pButton pRipple label="Ok" icon="pi pi-check" class="p-element p-ripple p-button p-component mr-2" (click)="emitOkButtonChange()"></button>-->
-<!--      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-ripple p-element p-button-outlined p-button p-component" (click)="emitCancelButtonChange()"></button>-->
-<!--    </div>-->
-<!--  </ng-template>-->
-<!--</p-sidebar>-->
-
-
-<p-sidebar [(visible)]="visible" position="right" styleClass="w-20rem">
+<p-sidebar [(visible)]="visibleSidebar" (visibleChange)="visibleSidebarChange.emit(visibleSidebar)" position="right" [baseZIndex]="10000" [style]="{width: '70%', height:'calc(100vh - 70px)', top: '70px'}">
   <ng-template pTemplate="header">
-    <h3>Manage Switches</h3>
+    <span class="font-semibold text-xl">{{titleSidebar}}</span>
   </ng-template>
 
-  <div class="switches-container">
-    <div *ngFor="let switchValue of switches; let i = index" class="mb-2">
-      <p-inputSwitch [(ngModel)]="switches[i]" (onChange)="toggleSwitch(i)"></p-inputSwitch>
-      <label class="ml-2">Switch {{ i + 1 }}</label>
-    </div>
-  </div>
+  <ng-template pTemplate="content">
+    <div class="col-12 md:col-12">
+      <div class="p-fluid">
+        <div class="field grid">
+          <label htmlFor="name3" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>
+          <div class="col-12 md:col-8">
+            <input pInputText id="name3" type="text" />
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Strict Anomalies
+          </label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">UDP Empty Checksum Check
+          </label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [(ngModel)]="valSwitch1"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Land Attack (Src=Dst) Anomaly
 
+          </label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [(ngModel)]="valSwitch2"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Private Check
+
+          </label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [(ngModel)]="valSwitch3"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Multicast Check
+
+          </label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [(ngModel)]="valSwitch4"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Fragment Check
+
+
+          </label>
+          <div class="col-12 md:col-8">
+            <div class="grid formgrid">
+              <div class="col-12 md:col-4">
+                <div class="field-checkbox">
+                  <p-checkbox name="group1" value="New York" [(ngModel)]="valCheck1" id="ny"></p-checkbox>
+                  <label for="ny">Other Protocol Fragment</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="field-checkbox">
+                  <p-checkbox name="group1" value="San Francisco" [(ngModel)]="valCheck1" id="sf"></p-checkbox>
+                  <label for="sf">TCP Fragment</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="field-checkbox">
+                  <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="valCheck1" id="la"></p-checkbox>
+                  <label for="la">UDP Fragment</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="field grid">
+          <label htmlFor="email3" class="col-12 mb-4 md:col-4 md:mb-0">IP Reputation Categories
+
+
+          </label>
+          <div class="col-12 md:col-8">
+            <div class="grid formgrid">
+              <div class="col-12 md:col-2">
+                <div class="field-checkbox">
+                  <p-checkbox name="group2" value="New York" [(ngModel)]="valCheck" id="ny"></p-checkbox>
+                  <label for="ny">DDoS</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-2">
+                <div class="field-checkbox">
+                  <p-checkbox name="group2" value="New2 York" [(ngModel)]="valCheck" id="ny2"></p-checkbox>
+                  <label for="ny2">Anonymous</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-2">
+                <div class="field-checkbox">
+                  <p-checkbox name="group2" value="New1 York" [(ngModel)]="valCheck" id="ny3"></p-checkbox>
+                  <label for="ny3">Phishing</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-2">
+                <div class="field-checkbox">
+                  <p-checkbox name="group2" value="San Francisco" [(ngModel)]="valCheck" id="sf"></p-checkbox>
+                  <label for="sf">Spam</label>
+                </div>
+              </div>
+              <div class="col-12 md:col-2">
+                <div class="field-checkbox">
+                  <p-checkbox name="group2" value="Los Angeles" [(ngModel)]="valCheck" id="la"></p-checkbox>
+                  <label for="la">Tor</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
   <ng-template pTemplate="footer">
-    <div class="flex justify-content-between">
-      <button pButton label="Cancel" class="p-button-secondary" (click)="cancel.emit()"></button>
-      <button pButton label="Save" class="p-button-success" (click)="save.emit()"></button>
+    <div class="flex justify-content-center align-items-center">
+      <button pButton pRipple label="Ok" icon="pi pi-check" class="p-element p-ripple p-button p-component mr-2" (click)="emitOkButtonChange()"></button>
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-ripple p-element p-button-outlined p-button p-component" (click)="emitCancelButtonChange()"></button>
     </div>
   </ng-template>
 </p-sidebar>
+
+
+<!--<p-sidebar [(visible)]="visible" position="right" styleClass="w-20rem">-->
+<!--  <ng-template pTemplate="header">-->
+<!--    <h3>Manage Switches</h3>-->
+<!--  </ng-template>-->
+
+<!--  <div class="switches-container">-->
+<!--    <div *ngFor="let switchValue of switches; let i = index" class="mb-2">-->
+<!--      <p-inputSwitch [(ngModel)]="switches[i]" (onChange)="toggleSwitch(i)"></p-inputSwitch>-->
+<!--      <label class="ml-2">Switch {{ i + 1 }}</label>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <ng-template pTemplate="footer">-->
+<!--    <div class="flex justify-content-between">-->
+<!--      <button pButton label="Cancel" class="p-button-secondary" (click)="cancel.emit()"></button>-->
+<!--      <button pButton label="Save" class="p-button-success" (click)="save.emit()"></button>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+<!--</p-sidebar>-->

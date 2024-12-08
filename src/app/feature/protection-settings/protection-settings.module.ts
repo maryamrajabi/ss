@@ -22,6 +22,7 @@ import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-component.component';
+import {SidebarComponent} from "../../shared/sidebar/sidebar.component";
 
 
 @NgModule({
@@ -30,26 +31,27 @@ import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-
     AddressesComponent,
     ProtectionPoliciesComponent
   ],
-  imports: [
-    CommonModule,
-    ProtectionSettingsRoutingModule,
-    ButtonDirective,
-    CheckboxModule,
-    DialogModule,
-    DropdownModule,
-    FormsModule,
-    InputNumberModule,
-    InputSwitchModule,
-    InputTextModule,
-    InputTextareaModule,
-    PrimeTemplate,
-    RadioButtonModule,
-    Ripple,
-    SidebarModule,
-    TableModule,
-    ToastModule,
-    ToolbarModule,
-    ToolbarComponentComponent
-  ]
+    imports: [
+        CommonModule,
+        ProtectionSettingsRoutingModule,
+        ButtonDirective,
+        CheckboxModule,
+        DialogModule,
+        DropdownModule,
+        FormsModule,
+        InputNumberModule,
+        InputSwitchModule,
+        InputTextModule,
+        InputTextareaModule,
+        PrimeTemplate,
+        RadioButtonModule,
+        Ripple,
+        SidebarModule,
+        TableModule,
+        ToastModule,
+        ToolbarModule,
+        ToolbarComponentComponent,
+        SidebarComponent
+    ]
 })
 export class ProtectionSettingsModule { }

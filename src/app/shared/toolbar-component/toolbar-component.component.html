@@ -8,12 +8,12 @@
       <button pButton pRipple type="button" (click)="edit.emit()"
               [disabled]="!selectedProducts || !selectedProducts.length" *ngIf="selectedProducts.length <= 1"
               label="Edit" icon="pi pi-pen-to-square" class="p-button-outlined p-button-secondary mr-2"></button>
-      <button pButton pRipple type="button" (click)="deleteSelectedProducts()"
+      <button pButton pRipple type="button" (click)="delete.emit()"
               [disabled]="!selectedProducts || !selectedProducts.length" label="Delete" icon="pi pi-trash"
               class="p-button-outlined p-button-secondary mr-2"></button>
       <span class="mt-2 md:mt-0 p-input-icon-left">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."
+          <input pInputText type="text" (input)="filter.emit($event)" placeholder="Search..."
                  class="w-full sm:w-auto"/>
       </span>
       <!--            <button pButton pRipple label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></button>-->

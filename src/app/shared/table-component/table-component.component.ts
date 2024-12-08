@@ -1,17 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TableModule} from 'primeng/table';
 import {ProfileSettingsModel} from '../../feature/profiles-settings/model/profile-settings-model';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {ButtonDirective} from 'primeng/button';
 
 @Component({
   selector: 'app-table-component',
   imports: [
     TableModule,
-    NgClass,
-    NgForOf,
-    NgIf,
-    ButtonDirective
   ],
   standalone: true,
   templateUrl: './table-component.component.html',
