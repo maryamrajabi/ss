@@ -13,38 +13,36 @@ import {Table} from 'primeng/table';
 })
 export class IpProfileComponent implements OnInit {
 
-  @ViewChild('tableHeaderCheckbo') tableHeaderCheckbo: any = '';
+  // products = [];
+  selectedProducts: any[] = [];
+  visibleSidebar2 = false;
+  valSwitches = Array(9).fill(false); // مدیریت تمام سوئیچ‌ها در یک آرایه
+
 
   productDialog: boolean = false;
-
+  //
   deleteProductDialog: boolean = false;
-
+  //
   deleteProductsDialog: boolean = false;
-
+  //
   products: ProfileSettingsModel[] = [];
-
+  //
   product: ProfileSettingsModel = {};
+  //
+  // selectedProducts: ProfileSettingsModel[] = [];
+  //
+  // submitted: boolean = false;
+  //
+  // cols: any[] = [];
+  //
+  // statuses: any[] = [];
+  //
+  // rowsPerPageOptions = [5, 10, 20];
+  //
+  // visibleSidebar2: boolean = false;
 
-  selectedProducts: ProfileSettingsModel[] = [];
 
-  submitted: boolean = false;
 
-  cols: any[] = [];
-
-  statuses: any[] = [];
-
-  rowsPerPageOptions = [5, 10, 20];
-
-  visibleSidebar2: boolean = false;
-
-  valSwitch: boolean = false;
-  valSwitch1: boolean = false;
-  valSwitch2: boolean = false;
-  valSwitch3: boolean = false;
-  valSwitch4: boolean = false;
-
-  valCheck: string[] = [];
-  valCheck1: string[] = [];
 
   constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
   }
@@ -52,25 +50,25 @@ export class IpProfileComponent implements OnInit {
   ngOnInit() {
     this.productService.getProducts().then((data: ProfileSettingsModel[]) => this.products = data);
 
-    this.cols = [
-      {field: 'product', header: 'Product'},
-      {field: 'price', header: 'Price'},
-      {field: 'category', header: 'Category'},
-      {field: 'rating', header: 'Reviews'},
-      {field: 'inventoryStatus', header: 'Status'}
-    ];
+    // this.cols = [
+    //   {field: 'product', header: 'Product'},
+    //   {field: 'price', header: 'Price'},
+    //   {field: 'category', header: 'Category'},
+    //   {field: 'rating', header: 'Reviews'},
+    //   {field: 'inventoryStatus', header: 'Status'}
+    // ];
 
-    this.statuses = [
-      {label: 'INSTOCK', value: 'instock'},
-      {label: 'LOWSTOCK', value: 'lowstock'},
-      {label: 'OUTOFSTOCK', value: 'outofstock'}
-    ];
+    // this.statuses = [
+    //   {label: 'INSTOCK', value: 'instock'},
+    //   {label: 'LOWSTOCK', value: 'lowstock'},
+    //   {label: 'OUTOFSTOCK', value: 'outofstock'}
+    // ];
   }
 
   openNew() {
-    this.product = {};
-    this.submitted = false;
-    this.productDialog = true;
+    // this.product = {};
+    // this.submitted = false;
+    // this.productDialog = true;
   }
 
   deleteSelectedProducts() {
@@ -105,11 +103,11 @@ export class IpProfileComponent implements OnInit {
 
   hideDialog() {
     this.productDialog = false;
-    this.submitted = false;
+    // this.submitted = false;
   }
 
   saveProduct() {
-    this.submitted = true;
+    // this.submitted = true;
 
     if (this.product.name?.trim()) {
       if (this.product.id) {
@@ -154,8 +152,28 @@ export class IpProfileComponent implements OnInit {
     return id;
   }
 
-  onGlobalFilter(table: Table, event: Event) {
+  onGlobalFilter(table: Table | any, event: Event) {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
+
+  // در والد
+  tableColumns = [
+    { field: 'name', header: 'Name' },
+    { field: 'age', header: 'Age' }
+  ];
+
+  tableData = [
+    { name: 'Ali', age: 30 },
+    { name: 'Sara', age: 25 }
+  ];
+
+  onRowSelected(row: any) {
+    console.log('Row selected:', row);
+  }
+
+  onRowDeleted(row: any) {
+    console.log('Row deleted:', row);
+  }
+
 }
 
