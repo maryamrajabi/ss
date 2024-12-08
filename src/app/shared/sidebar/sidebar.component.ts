@@ -1,30 +1,62 @@
 import {Component, EventEmitter, Input, Output, output} from '@angular/core';
 import {SidebarModule} from 'primeng/sidebar';
-import {ButtonDirective} from 'primeng/button';
-import {Ripple, RippleModule} from 'primeng/ripple';
+import {RippleModule} from 'primeng/ripple';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ChipsModule} from 'primeng/chips';
 import {FormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
-import {NgForOf} from '@angular/common';
+import {FormComponentComponent} from '../form-component/form-component.component';
 
 @Component({
   selector: 'app-sidebar-component',
   imports: [
     SidebarModule,
-    ButtonDirective,
     RippleModule,
     InputSwitchModule,
     ChipsModule,
     FormsModule,
     CheckboxModule,
-    NgForOf
+    FormComponentComponent
   ],
   standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+
+  formConfig = {
+    name: 'Profile Name',
+    switches: [
+      { label: 'IP Strict Anomalies', model: 'ipStrict' },
+      { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
+      { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
+      { label: 'IP Private Check', model: 'ipPrivate' },
+      { label: 'IP Multicast Check', model: 'ipMulticast' }
+    ],
+    checkboxGroups: [
+      {
+        label: 'IP Fragment Check',
+        model: 'ipFragment',
+        options: [
+          { value: 'otherProtocol', label: 'Other Protocol Fragment' },
+          { value: 'tcpFragment', label: 'TCP Fragment' },
+          { value: 'udpFragment', label: 'UDP Fragment' }
+        ]
+      },
+      {
+        label: 'IP Reputation Categories',
+        model: 'ipReputation',
+        options: [
+          { value: 'ddos', label: 'DDoS' },
+          { value: 'anonymous', label: 'Anonymous' },
+          { value: 'phishing', label: 'Phishing' },
+          { value: 'spam', label: 'Spam' },
+          { value: 'tor', label: 'Tor' }
+        ]
+      }
+    ]
+  };
+
 
 
   valSwitch: boolean = false;

@@ -1,0 +1,37 @@
+<div class="col-12 md:col-12">
+  <form [formGroup]="form">
+    <div class="p-fluid">
+      <div class="field grid">
+        <label [for]="'name'" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>
+        <div class="col-12 md:col-8">
+          <input pInputText id="name" formControlName="name" />
+        </div>
+      </div>
+
+      <div formGroupName="switches">
+        <div class="field grid" *ngFor="let switchItem of formConfig.switches">
+          <label class="col-12 mb-4 md:col-4 md:mb-0">{{switchItem.label}}</label>
+          <div class="col-12 md:col-8">
+            <p-inputSwitch [formControlName]="switchItem.model"></p-inputSwitch>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="checkboxGroups">
+        <div class="field grid" *ngFor="let group of formConfig.checkboxGroups">
+          <label class="col-12 mb-4 md:col-4 md:mb-0">{{group.label}}</label>
+          <div class="col-12 md:col-8">
+            <div class="grid formgrid">
+              <div [class]="'col-12 md:col-' + (12/group.options.length)" *ngFor="let option of group.options">
+                <div class="field-checkbox">
+                  <p-checkbox [formControlName]="group.model" [value]="option.value" [id]="option.value"></p-checkbox>
+                  <label [for]="option.value">{{option.label}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -23,13 +23,15 @@ import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-component.component';
 import {SidebarComponent} from "../../shared/sidebar/sidebar.component";
+import { AclComponent } from './components/acl/acl.component';
 
 
 @NgModule({
   declarations: [
     ProtectionSettingsComponent,
     AddressesComponent,
-    ProtectionPoliciesComponent
+    ProtectionPoliciesComponent,
+    AclComponent
   ],
     imports: [
         CommonModule,
