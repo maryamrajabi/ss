@@ -6,7 +6,7 @@
   </ng-template>
 
   <ng-template pTemplate="content">
-    <app-form-component [formConfig]="formConfig"></app-form-component>
+    <app-form-component #formComponent [formConfig]="formConfig" (formSubmit)="handleFormSubmit($event)"></app-form-component>
   </ng-template>
 
   <!--  <ng-template pTemplate="content">-->

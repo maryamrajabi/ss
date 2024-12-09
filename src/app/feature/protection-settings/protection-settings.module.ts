@@ -54,6 +54,6 @@ import { AclComponent } from './components/acl/acl.component';
         ToolbarModule,
         ToolbarComponentComponent,
         SidebarComponent
-    ]
+    ],
 })
 export class ProtectionSettingsModule { }

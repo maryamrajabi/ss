@@ -11,7 +11,7 @@
 
       <app-sidebar-component [(visibleSidebar)]="visibleSidebar"
                              (visibleSidebarChange)="visibleChange($event)"
-                             (onOkButtonChange)="saveProduct()"
+                             (onOkButtonChange)="saveProduct($event)"
                              (onCancelButtonChange)="visibleChange($event)"
                              [titleSidebar]="'Address Ipv4'"
                              [formConfig]="formConfig"

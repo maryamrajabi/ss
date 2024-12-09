@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, output, ViewChild} from '@angular/core';
 import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from 'primeng/ripple';
 import {InputSwitchModule} from 'primeng/inputswitch';
@@ -7,6 +7,7 @@ import {AbstractControl, FormsModule, ValidationErrors, Validators} from '@angul
 import {CheckboxModule} from 'primeng/checkbox';
 import {FormComponentComponent} from '../form-component/form-component.component';
 import {ButtonDirective} from 'primeng/button';
+import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
 
 @Component({
   selector: 'app-sidebar-component',
@@ -45,53 +46,33 @@ export class SidebarComponent {
     });
   }
 
-  @Input() formConfig: {
-    name: string;
-    fields: Array<{
-      name: string;
-      label: string;
-      type: any;
-      value: any;
-      validators?: (string | ((control: AbstractControl) => ValidationErrors | null))[];
-      options?: Array<{
-        value: any
-        label: string;
-      }>;
-    }>;
-    switches: Array<{
-      label: string;
-      model: string;
-    }>;
-    checkboxGroups: Array<{
-      label: string;
-      model: string;
-      options: Array<{
-        value: any
-        label: string;
-      }>;
-    }>;
-  } = {
+  @Input() formConfig: FormConfigModel = {
     name: '',
     fields: [],
-    switches: [],
-    checkboxGroups: []
+    // switches: [],
+    // checkboxGroups: []
   };
 
   @Input() titleSidebar: string = '';
 
   @Input() visibleSidebar: boolean = false;
   @Output() visibleSidebarChange = new EventEmitter<boolean>(); // خروجی برای ارسال تغییرات به والد
+  @ViewChild('formComponent') formComponent!: FormComponentComponent;
 
 
   onOkButtonChange = output<string>();
   onCancelButtonChange = output<string>();
 
   emitOkButtonChange(value?: string) {
-    this.onOkButtonChange.emit(value?? '');
+    this.formComponent.onSubmit();  // Call onSubmit() of the child component
   }
 
   emitCancelButtonChange(value?: string) {
     this.onCancelButtonChange.emit(value?? '');
+  }
+
+  handleFormSubmit(formData: any) {
+    this.onOkButtonChange.emit(formData?? '');
   }
 
   @Input() switches: boolean[] = []; // آرایه‌ای برای مدیریت وضعیت سوئیچ‌ها

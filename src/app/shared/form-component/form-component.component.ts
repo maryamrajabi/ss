@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {InputTextModule} from 'primeng/inputtext';
 import {CommonModule} from '@angular/common';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -11,6 +11,7 @@ import {
   ValidationErrors,
   Validators
 } from '@angular/forms';
+import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
 
 @Component({
   selector: 'app-form-component',
@@ -24,45 +25,21 @@ import {
 
 
 export class FormComponentComponent implements OnInit {
-  @Input() formConfig: {
-    name: string;
-    fields: Array<{
-      name: string;
-      label: string;
-      type: any;
-      value: any;
-      validators?: (string | ((control: AbstractControl) => ValidationErrors | null))[];
-      options?: Array<{
-        value: any;
-        label: string;
-      }>;
-    }>;
-    switches: Array<{
-      label: string;
-      model: string;
-    }>;
-    checkboxGroups: Array<{
-      label: string;
-      model: string;
-      options: Array<{
-        value: any
-        label: string;
-      }>;
-    }>;
-  } = {
+  @Input() formConfig: FormConfigModel = {
     name: '',
     fields: [],
-    switches: [],
-    checkboxGroups: []
+    // switches: [],
+    // checkboxGroups: []
   };
 
   form!: FormGroup;
+  @Output() formSubmit = new EventEmitter<any>();  // EventEmitter for sending form data
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: [this.formConfig.name || '', Validators.required],
+      name: [ '', Validators.required],
       fields: this.fb.group({}),
       switches: this.fb.group({}),
       checkboxGroups: this.fb.group({})
@@ -79,21 +56,21 @@ export class FormComponentComponent implements OnInit {
     // Add Fields
     this.formConfig.fields.forEach(field => {
       const control = this.fb.control(
-        field.value || '',
+        field.name || '',
         this.mapValidators(field.validators as string[]) // ترجمه رشته‌ها به توابع
       );
-      fieldsGroup.addControl(field.name, control);
+      fieldsGroup.addControl(field.value, control);
     });
 
-    // Add Switches
-    this.formConfig.switches.forEach(switchItem => {
-      switchesGroup.addControl(switchItem.model, this.fb.control(false));
-    });
-
-    // Add Checkbox Groups
-    this.formConfig.checkboxGroups.forEach(group => {
-      checkboxGroup.addControl(group.model, this.fb.control([]));
-    });
+    // // Add Switches
+    // this.formConfig.switches.forEach(switchItem => {
+    //   switchesGroup.addControl(switchItem.model, this.fb.control(false));
+    // });
+    //
+    // // Add Checkbox Groups
+    // this.formConfig.checkboxGroups.forEach(group => {
+    //   checkboxGroup.addControl(group.model, this.fb.control([]));
+    // });
   }
 
   private mapValidators(validators?: Array<string>) {
@@ -121,6 +98,6 @@ export class FormComponentComponent implements OnInit {
     return validatorFns;
   }
   onSubmit() {
-    console.log(this.form.value);
+    this.formSubmit.emit(this.form.value)
   }
 }
