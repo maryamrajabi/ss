@@ -3,6 +3,7 @@ import {ProfileSettingsModel} from '../../../profiles-settings/model/profile-set
 import {ProfileSettingsService} from '../../../profiles-settings/service/profile-settings.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {Table} from 'primeng/table';
+import {Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-addresses',
@@ -35,14 +36,63 @@ export class AddressesComponent  implements OnInit {
 
   visibleSidebar: boolean = false;
 
-  valSwitch: boolean = false;
-  valSwitch1: boolean = false;
-  valSwitch2: boolean = false;
-  valSwitch3: boolean = false;
-  valSwitch4: boolean = false;
-
-  valCheck: string[] = [];
-  valCheck1: string[] = [];
+  formConfig = {
+    name: 'Address Ipv4',
+    fields: [
+      { name: 'name', label: 'Name', type: 'text', value: '', validators: [Validators.required] },
+      { name: 'agree', label: 'Agree to Terms', type: 'checkbox', value: false },
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio',
+        options: [
+          { label: 'Male', value: 'Male' },
+          { label: 'Female', value: 'Female' }
+        ],
+        value: 'Male'
+      },
+      {
+        name: 'country',
+        label: 'Country',
+        type: 'dropdown',
+        options: [
+          { label: 'USA', value: 'USA' },
+          { label: 'Canada', value: 'Canada' },
+          { label: 'UK', value: 'UK' }
+        ],
+        value: 'USA'
+      }
+    ],
+    switches: [
+      { label: 'IP Strict Anomalies', model: 'ipStrict' },
+      { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
+      { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
+      { label: 'IP Private Check', model: 'ipPrivate' },
+      { label: 'IP Multicast Check', model: 'ipMulticast' }
+    ],
+    checkboxGroups: [
+      {
+        label: 'IP Fragment Check',
+        model: 'ipFragment',
+        options: [
+          { value: 'otherProtocol', label: 'Other Protocol Fragment' },
+          { value: 'tcpFragment', label: 'TCP Fragment' },
+          { value: 'udpFragment', label: 'UDP Fragment' }
+        ]
+      },
+      {
+        label: 'IP Reputation Categories',
+        model: 'ipReputation',
+        options: [
+          { value: 'ddos', label: 'DDoS' },
+          { value: 'anonymous', label: 'Anonymous' },
+          { value: 'phishing', label: 'Phishing' },
+          { value: 'spam', label: 'Spam' },
+          { value: 'tor', label: 'Tor' }
+        ]
+      }
+    ]
+  };
 
   @ViewChild('dt', {static: true}) dt: any;
 

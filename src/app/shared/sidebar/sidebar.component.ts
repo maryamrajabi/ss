@@ -3,9 +3,10 @@ import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from 'primeng/ripple';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ChipsModule} from 'primeng/chips';
-import {FormsModule} from '@angular/forms';
+import {AbstractControl, FormsModule, ValidationErrors, Validators} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {FormComponentComponent} from '../form-component/form-component.component';
+import {ButtonDirective} from 'primeng/button';
 
 @Component({
   selector: 'app-sidebar-component',
@@ -16,57 +17,65 @@ import {FormComponentComponent} from '../form-component/form-component.component
     ChipsModule,
     FormsModule,
     CheckboxModule,
-    FormComponentComponent
+    FormComponentComponent,
+    ButtonDirective
   ],
   standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  private mapValidators(validators?: string[]) {
+    if (!validators || validators.length === 0) {
+      return [];
+    }
 
-  formConfig = {
-    name: 'Profile Name',
-    switches: [
-      { label: 'IP Strict Anomalies', model: 'ipStrict' },
-      { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
-      { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
-      { label: 'IP Private Check', model: 'ipPrivate' },
-      { label: 'IP Multicast Check', model: 'ipMulticast' }
-    ],
-    checkboxGroups: [
-      {
-        label: 'IP Fragment Check',
-        model: 'ipFragment',
-        options: [
-          { value: 'otherProtocol', label: 'Other Protocol Fragment' },
-          { value: 'tcpFragment', label: 'TCP Fragment' },
-          { value: 'udpFragment', label: 'UDP Fragment' }
-        ]
-      },
-      {
-        label: 'IP Reputation Categories',
-        model: 'ipReputation',
-        options: [
-          { value: 'ddos', label: 'DDoS' },
-          { value: 'anonymous', label: 'Anonymous' },
-          { value: 'phishing', label: 'Phishing' },
-          { value: 'spam', label: 'Spam' },
-          { value: 'tor', label: 'Tor' }
-        ]
+    return validators.map(validator => {
+      switch (validator) {
+        case 'required':
+          return Validators.required;
+        case 'email':
+          return Validators.email;
+        case 'minLength':
+          return Validators.minLength(3); // Example
+        // Add other cases as needed
+        default:
+          throw new Error(`Validator "${validator}" is not supported.`);
       }
-    ]
+    });
+  }
+
+  @Input() formConfig: {
+    name: string;
+    fields: Array<{
+      name: string;
+      label: string;
+      type: any;
+      value: any;
+      validators?: (string | ((control: AbstractControl) => ValidationErrors | null))[];
+      options?: Array<{
+        value: any
+        label: string;
+      }>;
+    }>;
+    switches: Array<{
+      label: string;
+      model: string;
+    }>;
+    checkboxGroups: Array<{
+      label: string;
+      model: string;
+      options: Array<{
+        value: any
+        label: string;
+      }>;
+    }>;
+  } = {
+    name: '',
+    fields: [],
+    switches: [],
+    checkboxGroups: []
   };
-
-
-
-  valSwitch: boolean = false;
-  valSwitch1: boolean = false;
-  valSwitch2: boolean = false;
-  valSwitch3: boolean = false;
-  valSwitch4: boolean = false;
-
-  valCheck: string[] = [];
-  valCheck1: string[] = [];
 
   @Input() titleSidebar: string = '';
 

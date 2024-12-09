@@ -1,10 +1,41 @@
 <div class="col-12 md:col-12">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="p-fluid">
-      <div class="field grid">
-        <label [for]="'name'" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>
+<!--      <div class="field grid">-->
+<!--        <label [for]="'name'" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>-->
+<!--        <div class="col-12 md:col-8">-->
+<!--          <input pInputText id="name" formControlName="name" />-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <div *ngFor="let field of formConfig.fields" class="field grid">
+        <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
         <div class="col-12 md:col-8">
-          <input pInputText id="name" formControlName="name" />
+          <ng-container [ngSwitch]="field.type">
+            <!-- Text Input -->
+            <input *ngSwitchCase="'text'" pInputText [id]="field.name" [formControlName]="field.name" />
+
+            <!-- Checkbox -->
+            <input *ngSwitchCase="'checkbox'" type="checkbox" [id]="field.name" [formControlName]="field.name" />
+
+            <!-- Radio Buttons -->
+            <div *ngSwitchCase="'radio'" class="flex align-items-center gap-2">
+              <ng-container *ngFor="let option of field.options">
+                <input
+                  type="radio"
+                  [id]="field.name + option"
+                  [value]="option"
+                  [formControlName]="field.name"
+                />
+                <label [for]="field.name + option">{{ option }}</label>
+              </ng-container>
+            </div>
+
+            <!-- Dropdown -->
+            <select *ngSwitchCase="'dropdown'" [id]="field.name" [formControlName]="field.name">
+              <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>
+            </select>
+          </ng-container>
         </div>
       </div>
 
