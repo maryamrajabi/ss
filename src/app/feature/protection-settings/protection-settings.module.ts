@@ -24,6 +24,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-component.component';
 import {SidebarComponent} from "../../shared/sidebar/sidebar.component";
 import { AclComponent } from './components/acl/acl.component';
+import {TableComponentComponent} from '../../shared/table-component/table-component.component';
 
 
 @NgModule({
@@ -33,27 +34,28 @@ import { AclComponent } from './components/acl/acl.component';
     ProtectionPoliciesComponent,
     AclComponent
   ],
-    imports: [
-        CommonModule,
-        ProtectionSettingsRoutingModule,
-        ButtonDirective,
-        CheckboxModule,
-        DialogModule,
-        DropdownModule,
-        FormsModule,
-        InputNumberModule,
-        InputSwitchModule,
-        InputTextModule,
-        InputTextareaModule,
-        PrimeTemplate,
-        RadioButtonModule,
-        Ripple,
-        SidebarModule,
-        TableModule,
-        ToastModule,
-        ToolbarModule,
-        ToolbarComponentComponent,
-        SidebarComponent
-    ],
+  imports: [
+    CommonModule,
+    ProtectionSettingsRoutingModule,
+    ButtonDirective,
+    CheckboxModule,
+    DialogModule,
+    DropdownModule,
+    FormsModule,
+    InputNumberModule,
+    InputSwitchModule,
+    InputTextModule,
+    InputTextareaModule,
+    PrimeTemplate,
+    RadioButtonModule,
+    Ripple,
+    SidebarModule,
+    TableModule,
+    ToastModule,
+    ToolbarModule,
+    ToolbarComponentComponent,
+    SidebarComponent,
+    TableComponentComponent
+  ],
 })
 export class ProtectionSettingsModule { }

@@ -1,11 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TableModule} from 'primeng/table';
-import {ProfileSettingsModel} from '../../feature/profiles-settings/model/profile-settings-model';
+import {CommonModule, DatePipe, NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-table-component',
   imports: [
     TableModule,
+    CommonModule,
+    DatePipe
   ],
   standalone: true,
   templateUrl: './table-component.component.html',
@@ -19,18 +21,11 @@ export class TableComponentComponent {
 
   deleteProductsDialog: boolean = false;
 
-  products: ProfileSettingsModel[] = [];
-
-  product: ProfileSettingsModel = {};
-
-  selectedProducts: ProfileSettingsModel[] = [];
+  selectedRow: any[] = [];
 
   submitted: boolean = false;
 
-  cols: any[] = [];
-
   statuses: any[] = [];
-
 
   @Input() columns: { field: string; header: string }[] = []; // ستون‌ها
   @Input() data: any[] = []; // داده‌ها
@@ -45,4 +40,5 @@ export class TableComponentComponent {
   onRowDelete(row: any) {
     this.rowDelete.emit(row); // ارسال ردیف حذف‌شده به والد
   }
+
 }

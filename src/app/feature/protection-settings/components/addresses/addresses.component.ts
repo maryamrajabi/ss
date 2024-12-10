@@ -135,11 +135,12 @@ export class AddressesComponent  implements OnInit {
     this.productService.getProducts('addresses').then((data: ProfileSettingsModel[]) => this.products = data);
 
     this.cols = [
-      {field: 'product', header: 'Product'},
-      {field: 'price', header: 'Price'},
-      {field: 'category', header: 'Category'},
-      {field: 'rating', header: 'Reviews'},
-      {field: 'inventoryStatus', header: 'Status'}
+      {field: 'name', header: 'Name'},
+      {field: 'price', header: 'IP Strict Anomalies'},
+      {field: 'quantity', header: 'IP Private Check'},
+      {field: 'rating', header: 'IP Multicast Check'},
+      {field: 'category', header: 'IP Fragment Check'},
+      {field: 'description', header: 'IP Reputation Categories '}
     ];
 
     this.statuses = [
