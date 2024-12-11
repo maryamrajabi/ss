@@ -6428,10 +6428,10 @@
 
 
 .title-bar {
-  padding: 10px 0;
-  background: #e5e7eb;
+  padding: 5px 0;
+  background: var(--gray-100);
   width: 112%;
-  outline: 10px #e5e7eb solid;
+  outline: 10px var(--gray-100) solid;
   margin-left: -8px;
 }
 
@@ -6439,4 +6439,8 @@
   opacity: .7;
   padding-top: 4px;
   display: block;
+}
+
+.p-fluid .p-buttonset {
+  display: flex;
 }

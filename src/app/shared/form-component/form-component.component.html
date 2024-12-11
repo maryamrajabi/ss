@@ -1,77 +1,121 @@
 <div class="col-12 md:col-12">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="p-fluid">
-      <!--      <div class="field grid">-->
-      <!--        <label [for]="'name'" class="col-12 mb-4 md:col-4 md:mb-0">Name</label>-->
-      <!--        <div class="col-12 md:col-8">-->
-      <!--          <input pInputText id="name" formControlName="name" />-->
-      <!--        </div>-->
-      <!--      </div>-->
+    <div class="p-fluid" formArrayName="dynamicFields">
+      <div *ngFor="let field of formConfig.fields; let i = index" [formGroupName]="i" class="field grid">
 
-      <div *ngFor="let field of formConfig.fields" class="field grid">
-        <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
-        <div class="col-12 md:col-8">
-          <ng-container [ngSwitch]="field.type">
-            <!-- Text Input -->
-            <input *ngSwitchCase="'text'" pInputText [id]="field.name" [placeholder]="field.placeholder"
-                   [formControlName]="field.name"/>
-            <label class="hint" *ngIf="field.hint">{{field.hint}}</label>
+        <ng-container [ngSwitch]="field.type">
 
-            <div formGroupName="switches" *ngSwitchCase="'switches'">
+          <!-- title-bar-->
+          <div class="col-12 md:col-12" *ngSwitchCase="'titleBar'">
+            <div class="p-fluid">
+              <div class="field grid">
+                <span class="font-semibold title-bar text-md">{{field.name}}</span>
+              </div>
+            </div>
+          </div>
+
+          <ng-container *ngSwitchCase="'text'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+
+              <!-- Text Input -->
+              <input
+
+                pInputText
+                [id]="field.name"
+                [placeholder]="field.placeholder"
+                [formControlName]="'value'"
+              />
+              <label class="hint" *ngIf="field.hint">{{ field.hint }}</label>
+
+            </div>
+          </ng-container>
+          <ng-container *ngSwitchCase="'switches'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+
+              <!-- Switch -->
               <div class="field grid" *ngFor="let switchItem of field.options">
-                <!--                      <label class="col-12 mb-4 md:col-4 md:mb-0">{{switchItem.label}}</label>-->
                 <div class="col-12 md:col-8">
-                  <p-inputSwitch [formControlName]="switchItem.value"></p-inputSwitch>
+                  <p-inputSwitch [formControlName]="'value'"></p-inputSwitch>
                 </div>
               </div>
             </div>
-
-            <p-selectButton *ngSwitchCase="'selectOneButton'" [options]="field.options"
-                            [formControlName]="field.value"
-             optionLabel="name"></p-selectButton>
-
-
-
-            <!-- Checkbox -->
-            <!--            <input *ngSwitchCase="'checkbox'" type="checkbox" [id]="field.name" [formControlName]="field.name" />-->
-
-            <!-- Radio Buttons -->
-            <!--            <div *ngSwitchCase="'radio'" class="flex align-items-center gap-2">-->
-            <!--              <ng-container *ngFor="let option of field.options">-->
-            <!--                <input-->
-            <!--                  type="radio"-->
-            <!--                  [id]="field.name + option"-->
-            <!--                  [value]="option"-->
-            <!--                  [formControlName]="field.name"-->
-            <!--                />-->
-            <!--                <label [for]="field.name + option">{{ option }}</label>-->
-            <!--              </ng-container>-->
-            <!--            </div>-->
-
-            <!-- Dropdown -->
-            <!--            <select *ngSwitchCase="'dropdown'" [id]="field.name" [formControlName]="field.name">-->
-            <!--              <option *ngFor="let option of field.options" [value]="option">{{ option }}</option>-->
-            <!--            </select>-->
           </ng-container>
-        </div>
+          <ng-container *ngSwitchCase="'selectOneButton'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+
+              <!-- Select Button -->
+              <p-selectButton class="field grid"
+                              [options]="field.options"
+                              optionLabel="name">
+              </p-selectButton>
+              <!--          </ng-container>-->
+
+              <!-- Validation Errors -->
+              <!--          <div class="error" *ngIf="dynamicFields.at(i)?.invalid && dynamicFields.at(i)?.touched">-->
+              <!--            <small *ngIf="dynamicFields.at(i)?.hasError('required')">This field is required</small>-->
+              <!--            <small *ngIf="dynamicFields.at(i)?.hasError('minlength')">-->
+              <!--              Minimum length is {{ field.validators.minLength }}-->
+              <!--            </small>-->
+              <!--            <small *ngIf="dynamicFields.at(i)?.hasError('email')">Invalid email format</small>-->
+              <!--          </div>-->
+            </div>
+          </ng-container>
+          <ng-container *ngSwitchCase="'dropdown'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+              <div class="grid formgrid">
+                <div class="field col-12 md:col-8">
+                  <p-dropdown [options]="field.options" optionLabel="name"
+                              placeholder="Click to Select {{field.placeholder}}"
+                  ></p-dropdown>
+                </div>
+              </div>
+
+            </div>
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'multiSelect'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+<!--            <div class="col-12 md:col-8 mb-8">-->
+<!--              <div class="grid formgrid">-->
+<!--                <div class="field col-12 md:col-8">-->
+<!--                  <p-multiSelect [options]="field.options" placeholder="Select" optionLabel="name" class="multiselect-custom" display="chip">-->
+<!--                    <ng-template let-country pTemplate="item">-->
+<!--                      <div class="flex align-items-center">-->
+<!--                        <span class="ml-2">{{country.name}}</span>-->
+<!--                      </div>-->
+<!--                    </ng-template>-->
+<!--                  </p-multiSelect>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--            </div>-->
+
+          </ng-container>
+          <ng-container *ngSwitchCase="'dropdown-switch'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+              <!-- Switch -->
+              <div class="field grid">
+                <div class="col-12 md:col-8">
+                  <p-inputSwitch formControlName="isSwitchOn" class="inline-block mr-2 align-content-center justify-content-center"></p-inputSwitch>
+                  <p-dropdown *ngIf="dynamicFields.at(i).get('isSwitchOn')?.value"  class="inline-block  mr-2 mb-3 align-content-center justify-content-center"
+                    [options]="field.options"
+                    optionLabel="name"
+                    placeholder="Click to Select {{field.placeholder}}"
+                    formControlName="selectedOption">
+                  </p-dropdown>
+                </div>
+              </div>
+
+            </div>
+          </ng-container>
+
+        </ng-container>
       </div>
-
-
-      <!--      <div formGroupName="checkboxGroups">-->
-      <!--        <div class="field grid" *ngFor="let group of formConfig.checkboxGroups">-->
-      <!--          <label class="col-12 mb-4 md:col-4 md:mb-0">{{group.label}}</label>-->
-      <!--          <div class="col-12 md:col-8">-->
-      <!--            <div class="grid formgrid">-->
-      <!--              <div [class]="'col-12 md:col-' + (12/group.options.length)" *ngFor="let option of group.options">-->
-      <!--                <div class="field-checkbox">-->
-      <!--                  <p-checkbox [formControlName]="group.model" [value]="option.value" [id]="option.value"></p-checkbox>-->
-      <!--                  <label [for]="option.value">{{option.label}}</label>-->
-      <!--                </div>-->
-      <!--              </div>-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
     </div>
   </form>
 </div>

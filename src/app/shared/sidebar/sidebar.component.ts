@@ -49,8 +49,6 @@ export class SidebarComponent {
   @Input() formConfig: FormConfigModel = {
     name: '',
     fields: [],
-    // switches: [],
-    // checkboxGroups: []
   };
 
   @Input() titleSidebar: string = '';

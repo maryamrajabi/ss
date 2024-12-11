@@ -4,8 +4,9 @@ import {CommonModule} from '@angular/common';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {
-  AbstractControl,
+  AbstractControl, FormArray,
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   ValidationErrors,
@@ -13,65 +14,64 @@ import {
 } from '@angular/forms';
 import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {DropdownModule} from 'primeng/dropdown';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 @Component({
   selector: 'app-form-component',
   imports: [InputTextModule, InputSwitchModule, CheckboxModule, CommonModule,
-    ReactiveFormsModule, SelectButtonModule],
-
+    ReactiveFormsModule, SelectButtonModule, DropdownModule, MultiSelectModule],
   standalone: true,
   templateUrl: './form-component.component.html',
-  styleUrl: './form-component.component.scss'
+  styleUrls: ['./form-component.component.scss']
 })
-
-
 export class FormComponentComponent implements OnInit {
   @Input() formConfig: FormConfigModel = {
     name: '',
-    fields: [],
-    // switches: [],
-    // checkboxGroups: []
+    fields: []
   };
-
   form!: FormGroup;
-  @Output() formSubmit = new EventEmitter<any>();  // EventEmitter for sending form data
+
+  @Output() formSubmit = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {}
 
+  get dynamicFields(): FormArray {
+    return this.form.get('dynamicFields') as FormArray;
+  }
+
   ngOnInit() {
     this.form = this.fb.group({
-      name: [ '', Validators.required],
-      fields: this.fb.group({}),
-      switches: this.fb.group({}),
-      checkboxGroups: this.fb.group({})
+      dynamicFields: this.fb.array([])
     });
 
     this.initFormControls();
   }
 
   private initFormControls() {
-    const fieldsGroup = this.form.get('fields') as FormGroup;
-    const switchesGroup = this.form.get('switches') as FormGroup;
-    const checkboxGroup = this.form.get('checkboxGroups') as FormGroup;
+    const dynamicFieldsArray = this.dynamicFields;
 
-    // Add Fields
     this.formConfig.fields.forEach(field => {
-      const control = this.fb.control(
-        field.name || '',
-        this.mapValidators(field.validators as string[]) // ترجمه رشته‌ها به توابع
-      );
-      fieldsGroup.addControl(field.value, control);
-    });
+      let control;
 
-    // // Add Switches
-    // this.formConfig.switches.forEach(switchItem => {
-    //   switchesGroup.addControl(switchItem.model, this.fb.control(false));
-    // });
-    //
-    // // Add Checkbox Groups
-    // this.formConfig.checkboxGroups.forEach(group => {
-    //   checkboxGroup.addControl(group.model, this.fb.control([]));
-    // });
+      switch (field.type) {
+        case 'dropdown-switch':
+          control = this.fb.group({
+            isSwitchOn: [false], // مقدار اولیه برای سوئیچ
+            selectedOption: [null], // مقدار اولیه برای dropdown
+          });
+          break;
+
+        default:
+          control = this.fb.control(
+            field.value || '', // مقدار پیش‌فرض
+            this.mapValidators(field.validators as string[])
+          );
+          break;
+      }
+
+      dynamicFieldsArray.push(control);
+    });
   }
 
   private mapValidators(validators?: Array<string>) {
@@ -88,17 +88,16 @@ export class FormComponentComponent implements OnInit {
           validatorFns.push(Validators.email);
           break;
         case 'minLength':
-          // Add a specific example for minLength validation
           validatorFns.push(Validators.minLength(3));
           break;
-        // Add more validators as needed
         default:
           break;
       }
     }
     return validatorFns;
   }
+
   onSubmit() {
-    this.formSubmit.emit(this.form.value)
+    this.formSubmit.emit(this.form.value);
   }
 }

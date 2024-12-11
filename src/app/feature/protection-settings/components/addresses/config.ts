@@ -2,7 +2,7 @@ import {FormConfigModel} from '../../model/protection-settings-model';
 import {Validators} from '@angular/forms';
 
 export const formConfig: FormConfigModel = {
-  name: 'Address',
+  name: 'Add Address',
   fields: [
     { name: 'Name', label: 'Name', placeholder: 'Required. No Spaces', type: 'text', value: '', validators: [Validators.required] },
     { name: 'Address', label: 'Address', placeholder: '0.0.0.0', hint:'Example: 192.0.2.0', type: 'text', value: '', validators: [Validators.required] },
