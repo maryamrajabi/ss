@@ -40,6 +40,10 @@ export class ProfileSettingsService {
         getData = 'assets/demo/data/products5.json';
         break;
       }
+      case 'protection-policies': {
+        getData = 'assets/demo/data/products6.json';
+        break;
+      }
       default: {
         getData = 'assets/demo/data/products.json';
         break;

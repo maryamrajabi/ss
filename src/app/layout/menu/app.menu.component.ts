@@ -69,6 +69,11 @@ export class AppMenuComponent  implements OnInit {
                 icon: 'pi pi-fw pi-times-circle',
                 routerLink: ['/protection-settings/protection-policies']
               },
+              {
+                label: 'ACLs',
+                icon: 'pi pi-fw pi-times-circle',
+                routerLink: ['/protection-settings/acls']
+              },
             ]
           },
           {

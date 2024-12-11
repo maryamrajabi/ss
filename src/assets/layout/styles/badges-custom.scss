@@ -1,0 +1,58 @@
+.badgeStatus {
+  margin: 5px 0;
+  span {
+    margin: 0 5px;
+  }
+}
+
+.custom-badge {
+  padding: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  min-width: 30px;
+  justify-content: center;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+}
+
+.custom-badge {
+  &.status-TCP {
+    background: #256029;
+  }
+
+  &.status-IP {
+    background: #aeb948;
+  }
+
+  &.status-ICMP {
+    background: #be9e6f;
+  }
+
+  &.status-DNS {
+    background: #C63737;
+  }
+
+  &.status-DTLS {
+    background: #8A5340;
+  }
+  &.status-HTTP {
+    background: orange;
+  }
+
+  &.status-QNIC {
+    background: #23547B;
+  }
+
+  &.status-SSL_TSL {
+    background: #694382;
+  }
+
+  &.status-Video_Conf {
+    background: #805B36;
+  }
+}
+

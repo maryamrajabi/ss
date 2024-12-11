@@ -12,11 +12,12 @@ import {
   Validators
 } from '@angular/forms';
 import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 @Component({
   selector: 'app-form-component',
   imports: [InputTextModule, InputSwitchModule, CheckboxModule, CommonModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule, SelectButtonModule],
 
   standalone: true,
   templateUrl: './form-component.component.html',

@@ -25,6 +25,8 @@ import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-
 import {SidebarComponent} from "../../shared/sidebar/sidebar.component";
 import { AclComponent } from './components/acl/acl.component';
 import {TableComponentComponent} from '../../shared/table-component/table-component.component';
+import {ConfirmDialogComponent} from '../../shared/dialog/confirm-dialog/confirm-dialog.component';
+import {BaseLayoutComponentComponent} from '../../shared/base-layout-component/base-layout-component.component';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import {TableComponentComponent} from '../../shared/table-component/table-compon
     ProtectionSettingsComponent,
     AddressesComponent,
     ProtectionPoliciesComponent,
-    AclComponent
+    AclComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,9 @@ import {TableComponentComponent} from '../../shared/table-component/table-compon
     ToolbarModule,
     ToolbarComponentComponent,
     SidebarComponent,
-    TableComponentComponent
+    TableComponentComponent,
+    ConfirmDialogComponent,
+    BaseLayoutComponentComponent
   ],
 })
 export class ProtectionSettingsModule { }

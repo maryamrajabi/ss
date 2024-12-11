@@ -9,12 +9,14 @@ export interface FormConfigModel {
   fields: Array<{
     name: string;
     label: string;
+    placeholder: string;
+    hint?: string;
     type: string;
     value: string;
     validators?: (string | ((control: AbstractControl) => ValidationErrors | null))[]; // Allow both strings and functions
     options?: Array<{
-      value: string;
-      label: string;
+      value: any;
+      name: string;
     }>;
   }>;
 }

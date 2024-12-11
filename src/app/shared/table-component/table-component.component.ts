@@ -1,13 +1,21 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TableModule} from 'primeng/table';
 import {CommonModule, DatePipe, NgClass} from '@angular/common';
+import {ButtonModule} from 'primeng/button';
+import {BadgeModule} from 'primeng/badge';
+import {OverlayModule} from 'primeng/overlay';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 @Component({
   selector: 'app-table-component',
   imports: [
     TableModule,
     CommonModule,
-    DatePipe
+    DatePipe,
+    ButtonModule,
+    BadgeModule,
+    OverlayModule,
+    OverlayPanelModule
   ],
   standalone: true,
   templateUrl: './table-component.component.html',
@@ -21,7 +29,7 @@ export class TableComponentComponent {
 
   deleteProductsDialog: boolean = false;
 
-  selectedRow: any[] = [];
+  @Input() selectedRow: any[] = [];
 
   submitted: boolean = false;
 
@@ -33,7 +41,7 @@ export class TableComponentComponent {
   @Output() rowSelect = new EventEmitter<any>(); // رویداد انتخاب ردیف
   @Output() rowDelete = new EventEmitter<any>(); // رویداد حذف ردیف
 
-  onRowSelect(row: any) {
+  onRowSelect(row?: any) {
     this.rowSelect.emit(row); // ارسال ردیف انتخابی به والد
   }
 

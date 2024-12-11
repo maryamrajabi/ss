@@ -3,7 +3,7 @@
     <div class="my-1">
       <button pButton pRipple type="button" (click)="create.emit()" label="Create"
               *ngIf="selectedProducts.length <= 1" icon="pi pi-plus" class="p-button-outlined mr-2"></button>
-      <button pButton pRipple type="button" label="Clear Selection"
+      <button pButton pRipple type="button" label="Clear Selection"  (click)="clearSelection.emit()"
               *ngIf="selectedProducts.length > 1" icon="pi pi-minus" class="p-button-outlined mr-2"></button>
       <button pButton pRipple type="button" (click)="edit.emit()"
               [disabled]="!selectedProducts || !selectedProducts.length" *ngIf="selectedProducts.length <= 1"

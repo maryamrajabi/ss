@@ -4,6 +4,7 @@ import {ProfileSettingsService} from '../../../profiles-settings/service/profile
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {Validators} from '@angular/forms';
 import {FormConfigModel} from '../../model/protection-settings-model';
+import {formConfig, tableColumns} from './config';
 
 @Component({
   selector: 'app-addresses',
@@ -36,97 +37,9 @@ export class AddressesComponent  implements OnInit {
 
   visibleSidebar: boolean = false;
 
-  formConfig: FormConfigModel = {
-    name: 'Address Ipv4',
-    fields: [
-      { name: 'name', label: 'Name', type: 'text', value: '', validators: [Validators.required] },
-    //   { name: 'agree', label: 'Agree to Terms', type: 'checkbox', value: false },
-    //   {
-    //     name: 'gender',
-    //     label: 'Gender',
-    //     type: 'radio',
-    //     options: [
-    //       { label: 'Male', value: 'Male' },
-    //       { label: 'Female', value: 'Female' }
-    //     ],
-    //     value: 'Male'
-    //   },
-    //   {
-    //     name: 'country',
-    //     label: 'Country',
-    //     type: 'dropdown',
-    //     options: [
-    //       { label: 'USA', value: 'USA' },
-    //       { label: 'Canada', value: 'Canada' },
-    //       { label: 'UK', value: 'UK' }
-    //     ],
-    //     value: 'USA'
-    //   }
-    // ],
-    // switches: [
-    //   { label: 'IP Strict Anomalies', model: 'ipStrict' },
-    //   { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
-    //   { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
-    //   { label: 'IP Private Check', model: 'ipPrivate' },
-    //   { label: 'IP Multicast Check', model: 'ipMulticast' }
-    // ],
-    // checkboxGroups: [
-    //   {
-    //     label: 'IP Fragment Check',
-    //     model: 'ipFragment',
-    //     options: [
-    //       { value: 'otherProtocol', label: 'Other Protocol Fragment' },
-    //       { value: 'tcpFragment', label: 'TCP Fragment' },
-    //       { value: 'udpFragment', label: 'UDP Fragment' }
-    //     ]
-    //   },
-    //   {
-    //     label: 'IP Reputation Categories',
-    //     model: 'ipReputation',
-    //     options: [
-    //       { value: 'ddos', label: 'DDoS' },
-    //       { value: 'anonymous', label: 'Anonymous' },
-    //       { value: 'phishing', label: 'Phishing' },
-    //       { value: 'spam', label: 'Spam' },
-    //       { value: 'tor', label: 'Tor' }
-    //     ]
-    //   }
-    ]
+  formConfig: FormConfigModel = formConfig;
 
-
-    // switches: [
-    //   { label: 'IP Strict Anomalies', model: 'ipStrict' },
-    //   { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
-    //   { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
-    //   { label: 'IP Private Check', model: 'ipPrivate' },
-    //   { label: 'IP Multicast Check', model: 'ipMulticast' }
-    // ],
-    // checkboxGroups: [
-    //   {
-    //     label: 'IP Fragment Check',
-    //     model: 'ipFragment',
-    //     options: [
-    //       { value: 'otherProtocol', label: 'Other Protocol Fragment' },
-    //       { value: 'tcpFragment', label: 'TCP Fragment' },
-    //       { value: 'udpFragment', label: 'UDP Fragment' }
-    //     ]
-    //   },
-    //   {
-    //     label: 'IP Reputation Categories',
-    //     model: 'ipReputation',
-    //     options: [
-    //       { value: 'ddos', label: 'DDoS' },
-    //       { value: 'anonymous', label: 'Anonymous' },
-    //       { value: 'phishing', label: 'Phishing' },
-    //       { value: 'spam', label: 'Spam' },
-    //       { value: 'tor', label: 'Tor' }
-    //     ]
-    //   }
-    // ]
-
-  };
-
-  @ViewChild('dt', {static: true}) dt: any;
+  // @ViewChild('dt', {static: true}) dt: any;
 
   constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
   }
@@ -134,20 +47,8 @@ export class AddressesComponent  implements OnInit {
   ngOnInit() {
     this.productService.getProducts('addresses').then((data: ProfileSettingsModel[]) => this.products = data);
 
-    this.cols = [
-      {field: 'name', header: 'Name'},
-      {field: 'price', header: 'IP Strict Anomalies'},
-      {field: 'quantity', header: 'IP Private Check'},
-      {field: 'rating', header: 'IP Multicast Check'},
-      {field: 'category', header: 'IP Fragment Check'},
-      {field: 'description', header: 'IP Reputation Categories '}
-    ];
+    this.cols = tableColumns;
 
-    this.statuses = [
-      {label: 'INSTOCK', value: 'instock'},
-      {label: 'LOWSTOCK', value: 'lowstock'},
-      {label: 'OUTOFSTOCK', value: 'outofstock'}
-    ];
   }
 
   openNew() {
@@ -157,8 +58,12 @@ export class AddressesComponent  implements OnInit {
   }
 
   deleteSelectedProducts() {
-    console.log('f')
     this.deleteProductsDialog = true;
+  }
+
+  getSelectedProducts(e: any) {
+    console.log(e)
+    this.selectedProducts = e;
   }
 
   editProduct(product?: ProfileSettingsModel) {
@@ -177,11 +82,13 @@ export class AddressesComponent  implements OnInit {
     this.product = {...product};
   }
 
-  confirmDeleteSelected() {
+  confirmDeleteSelected(e: boolean) {
     this.deleteProductsDialog = false;
-    this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-    this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Deleted`, life: 3000});
-    this.selectedProducts = [];
+    if (e) {
+      this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+      this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Deleted`, life: 3000});
+      this.selectedProducts = [];
+    }
   }
 
   confirmDelete() {
@@ -218,7 +125,7 @@ export class AddressesComponent  implements OnInit {
     }
   }
 
-  onGlobalFilter( event: Event) {
-    this.dt.filterGlobal((event.target as HTMLInputElement).value, 'contains');
-  }
+  // onGlobalFilter( event: Event) {
+  //   this.dt.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+  // }
 }

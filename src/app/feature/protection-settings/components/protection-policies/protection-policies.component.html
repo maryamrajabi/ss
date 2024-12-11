@@ -1,1 +1,15 @@
-<p>protection-policies works!</p>
+<app-base-layout-component [selectedProducts]="selectedProducts"
+                           [visibleSidebar]="visibleSidebar"
+                           [formConfig]="formConfig"
+                           [cols]="cols"
+                           [data]="products"
+                           [deleteProductsDialog]="deleteProductsDialog"
+                           (onEdit)="editProduct()"
+                           (onDelete)="deleteSelectedProducts()"
+                           (onClearSelection)="selectedProducts = []"
+                           (onSidebarChange)="visibleChange($event)"
+                           (onSave)="saveProduct($event)"
+                           (onSidebarCancel)="visibleChange($event)"
+                           (onRowSelect)="getSelectedProducts($event)"
+                           (onDeleteConfirm)="confirmDeleteSelected($event)"
+></app-base-layout-component>

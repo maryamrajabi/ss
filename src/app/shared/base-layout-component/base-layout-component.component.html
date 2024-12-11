@@ -1,0 +1,33 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card px-1 py-1">
+      <p-toast></p-toast>
+      <app-toolbar-component (create)="visibleSidebar = true"
+                             (edit)="onEdit.emit()"
+                             (delete)="onDelete.emit()"
+                             (clearSelection)="selectedProducts = []"
+                             [selectedProducts]="selectedProducts"
+      ></app-toolbar-component>
+
+      <app-sidebar-component [(visibleSidebar)]="visibleSidebar"
+                             (visibleSidebarChange)="onSidebarChange.emit($event)"
+                             (onOkButtonChange)="onSave.emit($event)"
+                             (onCancelButtonChange)="onSidebarChange.emit($event)"
+                             [formConfig]="formConfig"
+      ></app-sidebar-component>
+
+
+      <app-table-component [columns]="cols"
+                           [data]="data"
+                           [selectedRow]="selectedProducts"
+                           (rowSelect)="onRowSelect.emit($event)"
+      ></app-table-component>
+
+    </div>
+
+    <app-confirm-dialog [deleteDialog]="deleteProductsDialog"
+                        (deleteConfirm)="onDeleteConfirm.emit($event)"
+    ></app-confirm-dialog>
+
+  </div>
+</div>
