@@ -31,11 +31,6 @@ export class DnsProfileComponent  implements OnInit {
   submitted: boolean = false;
 
   cols: any[] = [];
-
-  statuses: any[] = [];
-
-  rowsPerPageOptions = [5, 10, 20];
-
   visibleSidebar2: boolean = false;
 
   valSwitch: boolean = false;
@@ -47,11 +42,11 @@ export class DnsProfileComponent  implements OnInit {
   valCheck: string[] = [];
   valCheck1: string[] = [];
 
-  constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
+  constructor(private productService: ProfileSettingsService<any>, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.productService.getProducts('dns-profile').then((data: ProfileSettingsModel[]) => this.products = data);
+    this.productService.getData('dns-profile').then((data: ProfileSettingsModel[]) => this.products = data);
 
     this.cols = [
       {field: 'product', header: 'Product'},
@@ -60,18 +55,6 @@ export class DnsProfileComponent  implements OnInit {
       {field: 'rating', header: 'Reviews'},
       {field: 'inventoryStatus', header: 'Status'}
     ];
-
-    this.statuses = [
-      {label: 'INSTOCK', value: 'instock'},
-      {label: 'LOWSTOCK', value: 'lowstock'},
-      {label: 'OUTOFSTOCK', value: 'outofstock'}
-    ];
-  }
-
-  openNew() {
-    this.product = {};
-    this.submitted = false;
-    this.productDialog = true;
   }
 
   deleteSelectedProducts() {
@@ -85,10 +68,6 @@ export class DnsProfileComponent  implements OnInit {
     // this.productDialog = true;
   }
 
-  deleteProduct(product: ProfileSettingsService) {
-    this.deleteProductDialog = true;
-    this.product = {...product};
-  }
 
   confirmDeleteSelected() {
     this.deleteProductsDialog = false;

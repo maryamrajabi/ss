@@ -58,44 +58,13 @@ export const formConfig: FormConfigModel = {
     //     ]
     //   }
   ]
-
-
-  // switches: [
-  //   { label: 'IP Strict Anomalies', model: 'ipStrict' },
-  //   { label: 'UDP Empty Checksum Check', model: 'udpChecksum' },
-  //   { label: 'IP Land Attack (Src=Dst) Anomaly', model: 'ipLandAttack' },
-  //   { label: 'IP Private Check', model: 'ipPrivate' },
-  //   { label: 'IP Multicast Check', model: 'ipMulticast' }
-  // ],
-  // checkboxGroups: [
-  //   {
-  //     label: 'IP Fragment Check',
-  //     model: 'ipFragment',
-  //     options: [
-  //       { value: 'otherProtocol', label: 'Other Protocol Fragment' },
-  //       { value: 'tcpFragment', label: 'TCP Fragment' },
-  //       { value: 'udpFragment', label: 'UDP Fragment' }
-  //     ]
-  //   },
-  //   {
-  //     label: 'IP Reputation Categories',
-  //     model: 'ipReputation',
-  //     options: [
-  //       { value: 'ddos', label: 'DDoS' },
-  //       { value: 'anonymous', label: 'Anonymous' },
-  //       { value: 'phishing', label: 'Phishing' },
-  //       { value: 'spam', label: 'Spam' },
-  //       { value: 'tor', label: 'Tor' }
-  //     ]
-  //   }
-  // ]
-
 };
 
 export const tableColumns = [
-    {field: 'name', header: 'Address Name', type: 'text'},
-    {field: 'price', header: 'Ip Address', type: 'text'},
-    {field: 'quantity', header: 'Policy Name', type: 'text'},
-    {field: 'rating', header: 'Policy Status', type: 'status'},
-    {field: 'category', header: 'Operating Mode', type: 'text'},
+    {field: 'addressName', header: 'Address Name', type: 'text'},
+    {field: 'ipAddress', header: 'Ip Address', type: 'text'},
+    {field: 'policyName', header: 'Policy Name', type: 'text'},
+    {field: 'policyStatus', header: 'Policy Status', type: 'status'},
+    {field: 'operatingMode', header: 'Operating Mode', type: 'text'},
 ];
+

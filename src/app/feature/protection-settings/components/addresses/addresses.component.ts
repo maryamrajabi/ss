@@ -3,7 +3,7 @@ import {ProfileSettingsModel} from '../../../profiles-settings/model/profile-set
 import {ProfileSettingsService} from '../../../profiles-settings/service/profile-settings.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {Validators} from '@angular/forms';
-import {FormConfigModel} from '../../model/protection-settings-model';
+import {AddressModel, FormConfigModel} from '../../model/protection-settings-model';
 import {formConfig, tableColumns} from './config';
 
 @Component({
@@ -19,13 +19,13 @@ export class AddressesComponent  implements OnInit {
 
   deleteProductDialog: boolean = false;
 
-  deleteProductsDialog: boolean = false;
+  deleteItemsDialog: boolean = false;
 
-  products: ProfileSettingsModel[] = [];
+  data: AddressModel[] = [];
 
-  product: ProfileSettingsModel = {};
+  item: AddressModel | {} = {};
 
-  selectedProducts: ProfileSettingsModel[] = [];
+  selectedItems: AddressModel[] = [];
 
   submitted: boolean = false;
 
@@ -39,72 +39,44 @@ export class AddressesComponent  implements OnInit {
 
   formConfig: FormConfigModel = formConfig;
 
-  // @ViewChild('dt', {static: true}) dt: any;
-
-  constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
+  constructor(private getDataService: ProfileSettingsService<AddressModel>, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.productService.getProducts('addresses').then((data: ProfileSettingsModel[]) => this.products = data);
+    this.getDataService.getData('addresses').then((data: AddressModel[]) => this.data = data);
 
     this.cols = tableColumns;
 
   }
 
-  openNew() {
-    this.product = {};
-    this.submitted = false;
-    this.productDialog = true;
+  deleteSelectedItems() {
+    this.deleteItemsDialog = true;
   }
 
-  deleteSelectedProducts() {
-    this.deleteProductsDialog = true;
+  getSelectedItems(e: any) {
+    this.selectedItems = e;
   }
 
-  getSelectedProducts(e: any) {
-    console.log(e)
-    this.selectedProducts = e;
-  }
-
-  editProduct(product?: ProfileSettingsModel) {
+  editItem(item?: AddressModel) {
     this.visibleSidebar = true;
-    product = this.products.filter(val => this.selectedProducts.includes(val))[0];
-    this.product = {...product};
-    // this.productDialog = true;
+    item = this.data.filter(val => this.selectedItems.includes(val))[0];
+    this.item = {...item};
   }
 
   visibleChange(e: any) {
     this.visibleSidebar = e;
   }
 
-  deleteProduct(product: ProfileSettingsService) {
-    this.deleteProductDialog = true;
-    this.product = {...product};
-  }
-
   confirmDeleteSelected(e: boolean) {
-    this.deleteProductsDialog = false;
+    this.deleteItemsDialog = false;
     if (e) {
-      this.products = this.products.filter(val => !this.selectedProducts.includes(val));
+      this.data = this.data.filter(val => !this.selectedItems.includes(val));
       this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Deleted`, life: 3000});
-      this.selectedProducts = [];
+      this.selectedItems = [];
     }
   }
 
-  confirmDelete() {
-    this.deleteProductDialog = false;
-    this.products = this.products.filter(val => val.id !== this.product.id);
-    this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Deleted`, life: 3000});
-    this.product = {};
-  }
-
-  hideDialog() {
-    this.productDialog = false;
-    this.submitted = false;
-  }
-
-  saveProduct(e?: any) {
-    console.log(e)
+  save(e?: any) {
     this.submitted = true;
 
     if (e.name?.trim()) {
@@ -115,17 +87,14 @@ export class AddressesComponent  implements OnInit {
         // this.products[this.findIndexById(this.product.id)] = this.product;
         this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Updated`, life: 3000});
       } else {
-        this.products.push(e);
+        this.data.push(e);
         this.messageService.add({severity: 'success', summary: 'Successful', detail: `${this.formConfig.name} Created`, life: 3000});
       }
 
-      this.products = [...this.products];
+      this.data = [...this.data];
       this.productDialog = false;
-      this.product = {};
+      this.item = {};
     }
   }
 
-  // onGlobalFilter( event: Event) {
-  //   this.dt.filterGlobal((event.target as HTMLInputElement).value, 'contains');
-  // }
 }

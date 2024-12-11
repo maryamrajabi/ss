@@ -51,11 +51,11 @@ export class NtpProfileComponent  implements OnInit {
   valCheck: string[] = [];
   valCheck1: string[] = [];
 
-  constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
+  constructor(private productService: ProfileSettingsService<any>, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.productService.getProducts('ntp-profile').then((data: ProfileSettingsModel[]) => this.products = data);
+    this.productService.getData('ntp-profile').then((data: ProfileSettingsModel[]) => this.products = data);
 
     this.cols = [
       {field: 'product', header: 'Product'},
@@ -87,11 +87,6 @@ export class NtpProfileComponent  implements OnInit {
     product = this.products.filter(val => this.selectedProducts.includes(val))[0];
     this.product = {...product};
     // this.productDialog = true;
-  }
-
-  deleteProduct(product: ProfileSettingsService) {
-    this.deleteProductDialog = true;
-    this.product = {...product};
   }
 
   confirmDeleteSelected() {

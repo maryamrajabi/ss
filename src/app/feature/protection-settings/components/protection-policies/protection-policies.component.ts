@@ -24,11 +24,11 @@ export class ProtectionPoliciesComponent implements OnInit {
 
   formConfig: FormConfigModel = formConfig;
 
-  constructor(private productService: ProfileSettingsService, private messageService: MessageService) {
+  constructor(private productService: ProfileSettingsService<any>, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.productService.getProducts('protection-policies').then((data: ProfileSettingsModel[]) => this.products = data);
+    this.productService.getData('protection-policies').then((data: ProfileSettingsModel[]) => this.products = data);
 
     this.cols = tableColumns;
 

@@ -1,23 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ProfileSettingsModel} from '../model/profile-settings-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileSettingsService {
+export class ProfileSettingsService<T> {
 
 
   constructor(private http: HttpClient) { }
 
-  getProductsSmall() {
-    return this.http.get<any>('assets/demo/data/products-small.json')
-      .toPromise()
-      .then(res => res.data as ProfileSettingsModel[])
-      .then(data => data);
-  }
-
-  getProducts(profile?: any) {
+  getData(profile?: any) {
     let getData;
     switch(profile) {
       case 'icmp-profile': {
@@ -51,21 +43,8 @@ export class ProfileSettingsService {
     }
     return this.http.get<any>(getData)
       .toPromise()
-      .then(res => res.data as ProfileSettingsModel[])
+      .then(res => res.data as T[])
       .then(data => data);
   }
 
-  getProductsMixed() {
-    return this.http.get<any>('assets/demo/data/products-mixed.json')
-      .toPromise()
-      .then(res => res.data as ProfileSettingsModel[])
-      .then(data => data);
-  }
-
-  getProductsWithOrdersSmall() {
-    return this.http.get<any>('assets/demo/data/products-orders-small.json')
-      .toPromise()
-      .then(res => res.data as ProfileSettingsModel[])
-      .then(data => data);
-  }
 }
