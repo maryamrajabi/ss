@@ -1,5 +1,6 @@
-import {FormConfigModel} from '../../model/protection-settings-model';
 import {Validators} from '@angular/forms';
+import {TableColumnModel} from '../../../../shared/model/table-column-model';
+import {FormConfigModel} from '../../../../shared/model/form-config-model';
 
 export const formConfig: FormConfigModel = {
   name: 'Add Address',
@@ -60,7 +61,7 @@ export const formConfig: FormConfigModel = {
   ]
 };
 
-export const tableColumns = [
+export const tableColumns: TableColumnModel[] = [
     {field: 'addressName', header: 'Address Name', type: 'text'},
     {field: 'ipAddress', header: 'Ip Address', type: 'text'},
     {field: 'policyName', header: 'Policy Name', type: 'text'},

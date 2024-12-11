@@ -1,6 +1,6 @@
-// config.ts
-import {FormConfigModel} from '../../model/protection-settings-model';
 import {Validators} from '@angular/forms';
+import {FormConfigModel} from '../../../../shared/model/form-config-model';
+import {TableColumnModel} from '../../../../shared/model/table-column-model';
 
 export const formConfig: FormConfigModel = {
   name: 'Create Profile',
@@ -135,9 +135,10 @@ export const formConfig: FormConfigModel = {
   ],
 };
 
-export const tableColumns = [
-  {field: 'quantity', header: 'Name', type: 'text'},
-  {field: 'rating', header: 'Status', type: 'status'},
-  {field: 'inventoryStatus', header: 'Protection Profiles', type: 'badgeStatus'},
-  {field: 'category', header: 'Operating Mode', type: 'text'},
+export const tableColumns: TableColumnModel[] = [
+  {field: 'name', header: 'Name', type: 'text'},
+  {field: 'status', header: 'Status', type: 'status'},
+  {field: 'protectionProfiles', header: 'Protection Profiles', type: 'badgeStatus'},
+  {field: 'operatingMode', header: 'Operating Mode', type: 'text'},
 ];
+
