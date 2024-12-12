@@ -3,11 +3,11 @@ import {SidebarModule} from 'primeng/sidebar';
 import {RippleModule} from 'primeng/ripple';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ChipsModule} from 'primeng/chips';
-import {AbstractControl, FormsModule, ValidationErrors, Validators} from '@angular/forms';
+import {FormsModule, Validators} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {FormComponentComponent} from '../form-component/form-component.component';
 import {ButtonDirective} from 'primeng/button';
-import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
+import {FormConfigModel} from '../model/form-config-model';
 
 @Component({
   selector: 'app-sidebar-component',

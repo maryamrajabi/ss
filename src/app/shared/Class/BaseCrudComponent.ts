@@ -1,8 +1,8 @@
-import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
 import {MessageService} from 'primeng/api';
 
 import {Injectable, Input} from '@angular/core';
 import {TableColumnModel} from '../model/table-column-model';
+import {FormConfigModel} from '../model/form-config-model';
 
 @Injectable()
 export abstract class BaseComponent<T> {

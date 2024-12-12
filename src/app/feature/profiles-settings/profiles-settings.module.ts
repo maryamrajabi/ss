@@ -35,6 +35,7 @@ import { DnsProfileComponent } from './components/dns-profile/dns-profile.compon
 import {SidebarComponent} from '../../shared/sidebar/sidebar.component';
 import {ToolbarComponentComponent} from '../../shared/toolbar-component/toolbar-component.component';
 import {TableComponentComponent} from '../../shared/table-component/table-component.component';
+import {BaseLayoutComponentComponent} from '../../shared/base-layout-component/base-layout-component.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import {TableComponentComponent} from '../../shared/table-component/table-compon
     CheckboxModule,
     SidebarComponent,
     ToolbarComponentComponent,
-    TableComponentComponent
+    TableComponentComponent,
+    BaseLayoutComponentComponent
   ]
 })
 export class ProfilesSettingsModule { }

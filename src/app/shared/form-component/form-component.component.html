@@ -20,7 +20,6 @@
 
               <!-- Text Input -->
               <input
-
                 pInputText
                 [id]="field.name"
                 [placeholder]="field.placeholder"
@@ -94,6 +93,19 @@
 
 <!--            </div>-->
 
+          </ng-container>
+          <ng-container *ngSwitchCase="'checkbox'">
+              <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+              <div class="col-12 md:col-8">
+                <div class="grid formgrid">
+                  <div *ngFor="let checkbox of field.options">
+                    <div class="field-checkbox mr-2">
+                      <p-checkbox name="{{field.name}}" value="{{checkbox.value}}" [formControlName]="checkbox.value" [id]="checkbox.value"></p-checkbox>
+                      <label [for]="checkbox.value">{{ checkbox.name }}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </ng-container>
           <ng-container *ngSwitchCase="'dropdown-switch'">
             <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>

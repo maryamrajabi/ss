@@ -5,8 +5,23 @@ import {FormConfigModel} from '../../../../shared/model/form-config-model';
 export const formConfig: FormConfigModel = {
   name: 'Add Address',
   fields: [
-    { name: 'Name', label: 'Name', placeholder: 'Required. No Spaces', type: 'text', value: '', validators: [Validators.required] },
-    { name: 'Address', label: 'Address', placeholder: '0.0.0.0', hint:'Example: 192.0.2.0', type: 'text', value: '', validators: [Validators.required] },
+    {
+      name: 'Name',
+      label: 'Name',
+      placeholder: 'Required. No Spaces',
+      type: 'text',
+      value: '',
+      validators: [Validators.required]
+    },
+    {
+      name: 'Address',
+      label: 'Address',
+      placeholder: '0.0.0.0',
+      hint: 'Example: 192.0.2.0',
+      type: 'text',
+      value: '',
+      validators: [Validators.required]
+    },
     //   { name: 'agree', label: 'Agree to Terms', type: 'checkbox', value: false },
     //   {
     //     name: 'gender',
@@ -62,10 +77,10 @@ export const formConfig: FormConfigModel = {
 };
 
 export const tableColumns: TableColumnModel[] = [
-    {field: 'addressName', header: 'Address Name', type: 'text'},
-    {field: 'ipAddress', header: 'Ip Address', type: 'text'},
-    {field: 'policyName', header: 'Policy Name', type: 'text'},
-    {field: 'policyStatus', header: 'Policy Status', type: 'status'},
-    {field: 'operatingMode', header: 'Operating Mode', type: 'text'},
+  {field: 'addressName', header: 'Address Name', type: 'text'},
+  {field: 'ipAddress', header: 'Ip Address', type: 'text'},
+  {field: 'policyName', header: 'Policy Name', type: 'text'},
+  {field: 'policyStatus', header: 'Policy Status', type: 'status'},
+  {field: 'operatingMode', header: 'Operating Mode', type: 'text'},
 ];
 

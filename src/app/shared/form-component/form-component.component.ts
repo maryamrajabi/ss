@@ -4,23 +4,21 @@ import {CommonModule} from '@angular/common';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {
-  AbstractControl, FormArray,
-  FormBuilder,
-  FormControl,
+  FormArray,
+  FormBuilder, FormControl,
   FormGroup,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators
 } from '@angular/forms';
-import {FormConfigModel} from '../../feature/protection-settings/model/protection-settings-model';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {FormConfigModel} from '../model/form-config-model';
 
 @Component({
   selector: 'app-form-component',
   imports: [InputTextModule, InputSwitchModule, CheckboxModule, CommonModule,
-    ReactiveFormsModule, SelectButtonModule, DropdownModule, MultiSelectModule],
+    ReactiveFormsModule, SelectButtonModule, DropdownModule, MultiSelectModule, CheckboxModule],
   standalone: true,
   templateUrl: './form-component.component.html',
   styleUrls: ['./form-component.component.scss']
@@ -52,19 +50,27 @@ export class FormComponentComponent implements OnInit {
     const dynamicFieldsArray = this.dynamicFields;
 
     this.formConfig.fields.forEach(field => {
+      console.log(field)
       let control;
 
       switch (field.type) {
+        case 'checkbox':
+          control = this.fb.group(field.options?.reduce((acc: any, checkbox: any) => {
+            acc[checkbox.value] = new FormControl(false);
+            return acc;
+          }, {}));
+          break;
+
         case 'dropdown-switch':
           control = this.fb.group({
-            isSwitchOn: [false], // مقدار اولیه برای سوئیچ
-            selectedOption: [null], // مقدار اولیه برای dropdown
+            isSwitchOn: [false],
+            selectedOption: [null],
           });
           break;
 
         default:
           control = this.fb.control(
-            field.value || '', // مقدار پیش‌فرض
+            field.value || '',
             this.mapValidators(field.validators as string[])
           );
           break;

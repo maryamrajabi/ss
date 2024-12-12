@@ -20,7 +20,7 @@ export const formConfig: FormConfigModel = {
       type: 'switches',
       value: '',
       validators: [Validators.required],
-      options: [{name: '', value: 'ipStrict'},
+      options: [{name: '', value: 1},
       ]
     },
     {
@@ -31,12 +31,14 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'Detection', value: 1 },
-        { name: 'Prevention', value: 2 },
+        {name: 'Detection', value: 1},
+        {name: 'Prevention', value: 2},
       ]
     },
-    {name: 'Protection Profile Settings',
-      type: 'titleBar'},
+    {
+      name: 'Protection Profile Settings',
+      type: 'titleBar'
+    },
     {
       name: 'IP',
       label: 'IP',
@@ -45,8 +47,8 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'IP Profile 1', code: 1 },
-        { name: 'IP Profile 2', code: 2 },
+        {name: 'IP Profile 1', code: 1},
+        {name: 'IP Profile 2', code: 2},
       ]
     },
     {
@@ -57,8 +59,8 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'ICMP Profile 1', code: 1 },
-        { name: 'ICMP Profile 2', code: 2 },
+        {name: 'ICMP Profile 1', code: 1},
+        {name: 'ICMP Profile 2', code: 2},
       ]
     },
     {
@@ -69,8 +71,8 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'TCP WEB 1', code: 1 },
-        { name: 'TCP WEB 2', code: 2 },
+        {name: 'TCP WEB 1', code: 1},
+        {name: 'TCP WEB 2', code: 2},
       ]
     },
     {
@@ -81,8 +83,8 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'NTP Profile 1', code: 1 },
-        { name: 'NTP Profile 2', code: 2 },
+        {name: 'NTP Profile 1', code: 1},
+        {name: 'NTP Profile 2', code: 2},
       ]
     },
     {
@@ -93,12 +95,14 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'DNS Profile 1', code: 1 },
-        { name: 'DNS Profile 2', code: 2 },
+        {name: 'DNS Profile 1', code: 1},
+        {name: 'DNS Profile 2', code: 2},
       ]
     },
-    {name: 'Service Ports Setting',
-      type: 'titleBar'},
+    {
+      name: 'Service Ports Setting',
+      type: 'titleBar'
+    },
     {
       name: 'TCP Service Ports',
       label: 'TCP Service Ports',
@@ -117,8 +121,10 @@ export const formConfig: FormConfigModel = {
       validators: [Validators.required],
       hint: 'Default: 443.You can specify up to 256 ports, port or port ranges separated by space, e.g., 80-90 100.\n'
     },
-    {name: 'Protection Addresses',
-      type: 'titleBar'},
+    {
+      name: 'Protection Addresses',
+      type: 'titleBar'
+    },
     {
       name: 'Protection Addresses',
       label: 'Protection Addresses',
@@ -127,8 +133,8 @@ export const formConfig: FormConfigModel = {
       value: '',
       validators: [Validators.required],
       options: [
-        { name: 'value 1', code: 1 },
-        { name: 'value 2', code: 2 },
+        {name: 'value 1', code: 1},
+        {name: 'value 2', code: 2},
       ]
     },
 
