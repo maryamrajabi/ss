@@ -41,6 +41,21 @@
               </div>
             </div>
           </ng-container>
+          <ng-container *ngSwitchCase="'radiobutton'">
+            <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
+            <div class="col-12 md:col-8">
+
+              <!-- Radio -->
+                <div class="grid formgrid">
+                  <div *ngFor="let radiobutton of field.options">
+                    <div class="field-radiobutton mr-2">
+                      <p-radioButton name="{{field.value}}" value="{{radiobutton.value}}" [formControlName]="radiobutton.value" [id]="radiobutton.value"></p-radioButton>
+                      <label [for]="radiobutton.value">{{ radiobutton.name }}</label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </ng-container>
           <ng-container *ngSwitchCase="'selectOneButton'">
             <label [for]="field.name" class="col-12 mb-4 md:col-4 md:mb-0">{{ field.label }}</label>
             <div class="col-12 md:col-8">

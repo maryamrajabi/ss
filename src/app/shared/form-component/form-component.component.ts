@@ -14,11 +14,13 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {FormConfigModel} from '../model/form-config-model';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 @Component({
   selector: 'app-form-component',
   imports: [InputTextModule, InputSwitchModule, CheckboxModule, CommonModule,
-    ReactiveFormsModule, SelectButtonModule, DropdownModule, MultiSelectModule, CheckboxModule],
+    ReactiveFormsModule, SelectButtonModule, DropdownModule, MultiSelectModule,
+    CheckboxModule, RadioButtonModule],
   standalone: true,
   templateUrl: './form-component.component.html',
   styleUrls: ['./form-component.component.scss']
@@ -32,7 +34,8 @@ export class FormComponentComponent implements OnInit {
 
   @Output() formSubmit = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   get dynamicFields(): FormArray {
     return this.form.get('dynamicFields') as FormArray;
@@ -60,7 +63,14 @@ export class FormComponentComponent implements OnInit {
           }, {}));
           break;
 
-          case 'checkbox':
+        case 'checkbox':
+          control = this.fb.group(field.options?.reduce((acc: any, checkbox: any) => {
+            acc[checkbox.value] = new FormControl(false);
+            return acc;
+          }, {}));
+          break;
+
+        case 'radiobutton':
           control = this.fb.group(field.options?.reduce((acc: any, checkbox: any) => {
             acc[checkbox.value] = new FormControl(false);
             return acc;
@@ -74,7 +84,7 @@ export class FormComponentComponent implements OnInit {
           });
           break;
 
-          case 'text':
+        case 'text':
           control = this.fb.group({
             name: '',
           });
