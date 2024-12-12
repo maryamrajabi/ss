@@ -50,11 +50,17 @@ export class FormComponentComponent implements OnInit {
     const dynamicFieldsArray = this.dynamicFields;
 
     this.formConfig.fields.forEach(field => {
-      console.log(field)
       let control;
 
       switch (field.type) {
-        case 'checkbox':
+        case 'switches':
+          control = this.fb.group(field.options?.reduce((acc: any, checkbox: any) => {
+            acc[checkbox.name] = new FormControl(false);
+            return acc;
+          }, {}));
+          break;
+
+          case 'checkbox':
           control = this.fb.group(field.options?.reduce((acc: any, checkbox: any) => {
             acc[checkbox.value] = new FormControl(false);
             return acc;
@@ -68,6 +74,12 @@ export class FormComponentComponent implements OnInit {
           });
           break;
 
+          case 'text':
+          control = this.fb.group({
+            name: '',
+          });
+          break;
+
         default:
           control = this.fb.control(
             field.value || '',
@@ -76,6 +88,7 @@ export class FormComponentComponent implements OnInit {
           break;
       }
 
+      console.log(control)
       dynamicFieldsArray.push(control);
     });
   }

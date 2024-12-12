@@ -82,7 +82,7 @@ export const formConfig: FormConfigModel = {
       type: 'switches',
       value: '',
       validators: [Validators.required],
-      options: [{name: '', value: 1}],
+      options: [{name: 'infoAnomaly', value: 1}],
     },
     {
       name: 'Data Anomaly',

@@ -23,7 +23,7 @@
                 pInputText
                 [id]="field.name"
                 [placeholder]="field.placeholder"
-                [formControlName]="'value'"
+                [formControlName]="'name'"
               />
               <label class="hint" *ngIf="field.hint">{{ field.hint }}</label>
 
@@ -36,7 +36,7 @@
               <!-- Switch -->
               <div class="field grid" *ngFor="let switchItem of field.options">
                 <div class="col-12 md:col-8">
-                  <p-inputSwitch [formControlName]="'value'"></p-inputSwitch>
+                  <p-inputSwitch [formControlName]="switchItem.name" [id]="switchItem.name"></p-inputSwitch>
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const formConfig: FormConfigModel = {
       type: 'switches',
       value: '',
       validators: [Validators.required],
-      options: [{name: '', value: 1},
+      options: [{name: 'status', value: 1},
       ]
     },
     {

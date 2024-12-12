@@ -2,39 +2,30 @@
 	"data": [
 		{
 			"id": "1000",
-			"code": "f230fh0g3",
 			"name": "Ip_Profile",
-			"description": "DDoS, Anonymous Proxies, Phishing, Spam, Tor",
-			"image": "bamboo-watch.jpg",
-			"price": 1,
-			"category": "N/A",
-			"quantity": 1,
-			"inventoryStatus": "Enabled",
-			"rating": 1
+			"ipReputationCategories": "DDoS, Anonymous Proxies, Phishing, Spam, Tor",
+			"ipStrictAnomalies": 1,
+			"ipFragmentCheck": "N/A",
+			"ipPrivateCheck": 1,
+			"ipMulticastCheck": 1
 		},
 		{
 			"id": "1001",
-			"code": "nvklal433",
 			"name": "Ip_Profile_DNS",
-			"description": "N/A",
-			"image": "black-watch.jpg",
-			"price": 0,
-			"category": "Other Protocol Fragment, TCP Fragment",
-			"quantity": 1,
-			"inventoryStatus": "OUTOFSTOCK",
-			"rating": 1
+			"ipReputationCategories": "N/A",
+			"ipStrictAnomalies": 0,
+			"ipFragmentCheck": "Other Protocol Fragment, TCP Fragment",
+			"ipPrivateCheck": 1,
+			"ipMulticastCheck": 1
 		},
 		{
 			"id": "1002",
-			"code": "zz21cz3c1",
 			"name": "Policy-3",
-			"description": "N/A",
-			"image": "blue-band.jpg",
-			"price": 0,
-			"category": "Other Protocol Fragment, TCP Fragment",
-			"quantity": 0,
-			"inventoryStatus": "LOWSTOCK",
-			"rating": 0
+			"ipReputationCategories": "N/A",
+			"ipStrictAnomalies": 0,
+			"ipFragmentCheck": "Other Protocol Fragment, TCP Fragment",
+			"ipPrivateCheck": 0,
+			"ipMulticastCheck": 0
 		}
 	]
 }

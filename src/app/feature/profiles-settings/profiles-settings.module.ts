@@ -24,7 +24,6 @@ import {TooltipModule} from 'primeng/tooltip';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
-import { FormIpProfileComponent } from './components/ip-profile/form-ip-profile/form-ip-profile.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -39,7 +38,7 @@ import {BaseLayoutComponentComponent} from '../../shared/base-layout-component/b
 
 
 @NgModule({
-  declarations: [ProfilesSettingsComponent, IpProfileComponent, FormIpProfileComponent, IcmpProfileComponent, NtpProfileComponent, TcpProfileComponent, DnsProfileComponent],
+  declarations: [ProfilesSettingsComponent, IpProfileComponent, IcmpProfileComponent, NtpProfileComponent, TcpProfileComponent, DnsProfileComponent],
   imports: [
     CommonModule,
     TableModule,
